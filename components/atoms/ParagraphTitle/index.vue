@@ -2,9 +2,9 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "AtomsTitle",
+  name: "AtomsParagraphTitle",
   props: {
-    sizeTitle: {
+    size: {
       type: String,
       default: "large",
       validator: (value: string) => {
@@ -17,7 +17,7 @@ export default defineComponent({
         ].includes(value);
       },
     },
-    typeTitle: {
+    types: {
       type: String,
       default: "dark",
       validator: (value: string) => {
@@ -26,7 +26,7 @@ export default defineComponent({
     },
     text: {
       type: String,
-      default: "Title",
+      default: "Title and Paragraph",
     },
   },
   emits: ["onclick"],
@@ -44,7 +44,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <h1 class="title-text" :class="[sizeTitle, typeTitle]" @click="titleOnClick">
+  <h1 class="type-text" :class="[size, types]" @click="titleOnClick">
     {{ text }}
   </h1>
 </template>
