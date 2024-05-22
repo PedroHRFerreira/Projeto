@@ -5,5 +5,5 @@ export default defineComponent({
 });
 </script>
 <template>
-  <AtomsParagraphTitle />
+  <AtomsInput />
 </template>

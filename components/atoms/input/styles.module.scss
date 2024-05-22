@@ -1,0 +1,20 @@
+input {
+  width: var(--width);
+  height: var(--height);
+  max-width: var(--max-width);
+  border: 1px solid var(--border-color);
+  font-size: var(--font-size);
+  padding: var(--padding);
+
+  &::placeholder {
+    color: var(--placeholder-color);
+  }
+
+  &:focus {
+    border: var(--focus);
+  }
+
+  &:disabled {
+    background-color: var(--disabled-color);
+  }
+}
