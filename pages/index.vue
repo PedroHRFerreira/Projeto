@@ -5,5 +5,5 @@ export default defineComponent({
 });
 </script>
 <template>
-  <AtomsInput />
+  <AtomsImageDisplay />
 </template>
