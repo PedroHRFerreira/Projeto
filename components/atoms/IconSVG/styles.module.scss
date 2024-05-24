@@ -1,0 +1,14 @@
+.icon-common {
+  display: flex;
+  background: none;
+  svg {
+    width: v-bind(width);
+    height: v-bind(height);
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  &.icon-common--stroke {
+    stroke: currentColor !important;
+  }
+}

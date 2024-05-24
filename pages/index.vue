@@ -5,5 +5,5 @@ export default defineComponent({
 });
 </script>
 <template>
-  <AtomsSwitch />
+  <AtomsIconSVG name="github-fill-svgrepo-com" />
 </template>
