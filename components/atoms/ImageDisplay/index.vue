@@ -46,14 +46,20 @@ export default defineComponent({
 });
 </script>
 <template>
-  <img
-    class="content-image"
-    src="/static/image/image.webp"
-    :alt="alt"
-    :style="cssVar"
-    :value="value"
-    @click="clickImg"
-  />
+  <div class="card-image">
+    <img
+      class="content-image"
+      src="/static/image/image.webp"
+      :alt="alt"
+      :style="cssVar"
+      :value="value"
+      @click="clickImg"
+    />
+    <hr />
+    <div class="image-text">
+      <slot />
+    </div>
+  </div>
 </template>
 <style scoped lang="scss">
 @import "styles.module.scss";

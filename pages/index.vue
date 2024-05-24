@@ -5,5 +5,5 @@ export default defineComponent({
 });
 </script>
 <template>
-  <AtomsInternalLink />
+  <AtomsImageDisplay />
 </template>
