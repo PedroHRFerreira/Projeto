@@ -1,0 +1,14 @@
+.section {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  .icon-text {
+    max-width: 80px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
