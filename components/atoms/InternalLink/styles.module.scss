@@ -1,0 +1,19 @@
+.content-link {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  ul {
+    list-style-type: none;
+  }
+
+  &__style {
+    text-decoration: var(--text-decoration);
+    color: var(--color);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+  }
+}
