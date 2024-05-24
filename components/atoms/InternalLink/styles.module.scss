@@ -2,11 +2,8 @@
   width: 100%;
   height: auto;
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
   ul {
+    padding-inline-start: 0;
     list-style-type: none;
   }
 

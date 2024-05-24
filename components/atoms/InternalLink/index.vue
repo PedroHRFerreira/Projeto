@@ -3,6 +3,10 @@ import { computed, defineComponent } from "vue";
 export default defineComponent({
   name: "AtomsInternalLink",
   props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
     textDecoration: {
       type: String,
       default: "none",
@@ -12,26 +16,16 @@ export default defineComponent({
       default: "black",
     },
     fontWeight: {
-      type: String,
-      Number,
+      type: [String, Number],
       default: "600",
     },
     fontSize: {
-      type: String,
-      Number,
+      type: [String, Number],
       default: "16px",
     },
   },
-  setup(props) {
-    const items = computed(() => {
-      return [
-        {
-          url: "Url link",
-          text: "Text link",
-        },
-      ];
-    });
-
+  emits: ["onClick"],
+  setup(props, { emit }) {
     const cssVar = computed(() => {
       return {
         "--text-decoration": props.textDecoration,
@@ -41,9 +35,14 @@ export default defineComponent({
       };
     });
 
+    const profileOnClick = () => {
+      emit("onClick");
+      console.log("test");
+    };
+
     return {
-      items,
       cssVar,
+      profileOnClick,
     };
   },
 });
@@ -51,11 +50,13 @@ export default defineComponent({
 <template>
   <div class="content-link">
     <ul v-for="(item, index) in items" :key="index">
-      <li>
-        <a class="content-link__style" :style="cssVar" :href="item.url">{{
-          item.text
-        }}</a>
-      </li>
+      <a
+        class="content-link__style"
+        :style="cssVar"
+        :href="item.url"
+        @click="profileOnClick"
+        >{{ item.text }}</a
+      >
     </ul>
   </div>
 </template>

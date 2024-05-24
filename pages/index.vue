@@ -5,5 +5,5 @@ export default defineComponent({
 });
 </script>
 <template>
-  <MoleculesIconProfile />
+  <MoleculesDropdown />
 </template>

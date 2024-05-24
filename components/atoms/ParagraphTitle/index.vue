@@ -32,7 +32,6 @@ export default defineComponent({
   emits: ["onclick"],
   setup(props, { emit }) {
     const titleOnClick = () => {
-      console.log("click in title");
       emit("onclick");
     };
 
