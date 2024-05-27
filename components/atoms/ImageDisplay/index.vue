@@ -23,6 +23,11 @@ export default defineComponent({
       type: String,
       default: "alt and test image",
     },
+    itemsOn: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     const cssVar = computed(() => {
@@ -49,13 +54,13 @@ export default defineComponent({
   <div class="card-image">
     <img
       class="content-image"
-      src="/static/image/image.webp"
+      src="/static/image/image-blue.webp"
       :alt="alt"
       :style="cssVar"
       :value="value"
       @click="clickImg"
     />
-    <hr />
+    <hr v-if="itemsOn" />
     <div class="image-text">
       <slot />
     </div>

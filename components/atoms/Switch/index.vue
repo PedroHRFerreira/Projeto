@@ -13,11 +13,12 @@ export default defineComponent({
       default: "green",
     },
   },
-  setup(props) {
+  setup(props, { emit }) {
     const isOn = ref(false);
 
     const toggleSwitch = () => {
       isOn.value = !isOn.value;
+      emit("onSwitch", isOn.value);
     };
 
     const cssVar = computed(() => {
