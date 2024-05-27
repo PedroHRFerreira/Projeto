@@ -21,7 +21,7 @@ export default defineComponent({
     },
     borderColor: {
       type: String,
-      default: "blue",
+      default: "black",
     },
     placeholder: {
       type: String,
@@ -37,7 +37,7 @@ export default defineComponent({
     },
     fontSize: {
       type: String,
-      default: "14px",
+      default: "16px",
     },
     height: {
       type: String,
