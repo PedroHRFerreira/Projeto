@@ -1,5 +1,52 @@
 @import url("https://fonts.googleapis.com/css2?family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+:root {
+  --brandPrimary4: #a786fd;
+  --brandPrimary5: #8a5efc;
+  --brandPrimary6: #6d36fb;
+  --brandPrimaryLightest: #f4f0ff;
+
+  --neutralDarkGrey: #0f1116;
+  --neutralDarkGrey1: #121717;
+  --neutralDarkGrey2: #202227;
+  --neutralDarkGrey3: #313338;
+  --neutralDarkGrey5: #797983;
+  --neutralDarkGrey6: #505057;
+  --neutralDarkGrey7: #5b5b61;
+  --neutralDarkGrey8: #86888d;
+  --neutralDarkGrey9: #72728b;
+  --neutralDarkGrey11: #6f7778;
+  --backgroundModal: #0b12128e;
+
+  --neutralLightGrey: #ffffff;
+  --neutralLightGrey1: #f7f7fc;
+  --neutralLightGrey2: #ebebf8;
+  --neutralLightGrey3: #dcdcf0;
+  --neutralLight4: #bebedd;
+  --neutralLightGrey4: #313338;
+  --neutralLightGrey5: #53555a;
+  --neutralLightGrey6: #9494b8;
+  --neutralLightGrey7: #8383a4;
+  --neutralLightGrey8: #424449;
+  --neutralLightGrey9: #b2b5bb;
+  --neutral-700: #bac2c5;
+  --neutral-800: #d0d7d9;
+  --neutral-900: #e9eced;
+  --neutral-1000: #f7f9fa;
+
+  --lightGrey1: #94979e;
+  --lightGrey4: #cccfd6;
+  --auxiliary-orange-700: #ff9900;
+  --auxiliary-orange-600: #fbb336;
+  --auxiliary-yellow-600: #ffd600;
+  --auxiliary-green-600: #5ec64d;
+  --auxiliary-green-700: #6bc80e;
+  --auxiliary-pink-600: #e96293;
+  --auxiliary-pink-700: #f4516c;
+  --auxiliary-blue-600: #3399ff;
+  --auxiliary-red-600: #ff2e2e;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }

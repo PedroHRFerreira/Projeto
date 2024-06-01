@@ -1,0 +1,56 @@
+.tag {
+  width: 100%;
+  height: 18px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border: solid;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14.4px;
+
+  &.outline {
+    &.default {
+      color: var(--brandPrimary6);
+      border-color: var(--brandPrimary6);
+    }
+    &.recovered,
+    &.active {
+      color: var(--auxiliary-green-600);
+      border-color: var(--auxiliary-green-600);
+    }
+    &.open {
+      color: var(--auxiliary-blue-600);
+      border-color: var(--auxiliary-blue-600);
+    }
+    &.negotiation {
+      color: var(--auxiliary-orange-600);
+      border-color: var(--auxiliary-orange-600);
+    }
+    &.payment_pending {
+      color: var(--auxiliary-pink-600);
+      border-color: var(--auxiliary-pink-600);
+    }
+    &.closed,
+    &.inactive {
+      color: var(--auxiliary-red-600);
+      border-color: var(--auxiliary-red-600);
+    }
+    &.heated {
+      color: var(--auxiliary-pink-700);
+      border-color: var(--auxiliary-pink-700);
+    }
+  }
+  &.filter {
+    &.default {
+      color: var(--neutralDarkGrey1);
+      border-color: var(--neutralDarkGrey);
+    }
+    .icon {
+      cursor: pointer;
+    }
+  }
+}
