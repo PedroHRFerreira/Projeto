@@ -1,7 +1,13 @@
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
 export default defineComponent({
   name: "MoleculesModal",
+  props: {
+    typeTag: {
+      type: String,
+      default: "filter",
+    },
+  },
   setup() {
     const items = computed(() => {
       return [
@@ -23,8 +29,55 @@ export default defineComponent({
       ];
     });
 
+    const multipleTags = computed(() => {
+      return [
+        {
+          textTag: "test_!1",
+          typeTag: "filter",
+        },
+        {
+          textTag: "test_!2",
+          typeTag: "filter",
+        },
+        {
+          textTag: "test_!3",
+          typeTag: "filter",
+        },
+        {
+          textTag: "test_!4",
+          typeTag: "filter",
+        },
+        {
+          textTag: "test_!5",
+          typeTag: "filter",
+        },
+        {
+          textTag: "test_!6",
+          typeTag: "filter",
+        },
+      ];
+    });
+
+    const selectedTags: any = ref([]);
+
+    const addTag = (event: any) => {
+      const selectedTag = event.target.value;
+      if (selectedTags.value.includes(selectedTag)) {
+        return [];
+      }
+      selectedTags.value.push(selectedTag);
+    };
+
+    const removeTag = (tag: string) => {
+      selectedTags.value = selectedTags.value.filter((t: string) => t !== tag);
+    };
+
     return {
       items,
+      multipleTags,
+      selectedTags,
+      addTag,
+      removeTag,
     };
   },
 });
@@ -50,7 +103,34 @@ export default defineComponent({
         :value="item.value"
       />
     </section>
-    <div></div>
+    <div class="modal-content__select">
+      <select class="select-tag" @change="addTag">
+        <option value="" disabled selected>
+          <AtomsParagraphTitle
+            size="medium"
+            text="Select a tag"
+            types="primary"
+          />
+        </option>
+        <option
+          v-for="(tag, index) in multipleTags"
+          :key="index"
+          :value="tag.textTag"
+        >
+          {{ tag.textTag }}
+        </option>
+      </select>
+    </div>
+    <div class="modal-content__tag">
+      <AtomsTag
+        v-for="(tag, index) in selectedTags"
+        :key="index"
+        :text="tag"
+        :type="typeTag"
+        class="tag-content"
+        @onClose="removeTag"
+      />
+    </div>
     <article></article>
   </aside>
 </template>

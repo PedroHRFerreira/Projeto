@@ -11,12 +11,10 @@ export default defineComponent({
     },
     minLength: {
       type: String,
-      required: true,
       default: "4",
     },
     maxLength: {
       type: String,
-      required: true,
       default: "8",
     },
     borderColor: {

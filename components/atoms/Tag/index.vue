@@ -35,8 +35,7 @@ export default defineComponent({
   emits: ["onClose"],
   setup(props, { emit }) {
     const closeTag = () => {
-      emit("onClose");
-      console.log("test", emit);
+      emit("onClose", props.text);
     };
 
     const isFilter = computed(() => {
@@ -55,6 +54,7 @@ export default defineComponent({
     {{ text }}
     <AtomsIconSVG
       v-if="isFilter"
+      class="icon"
       name="close"
       width="14px"
       filled

@@ -46,11 +46,15 @@
   }
   &.filter {
     &.default {
-      color: var(--neutralDarkGrey1);
-      border-color: var(--neutralDarkGrey);
+      color: var(--neutralLightGrey);
+      border-color: var(--neutralLightGrey3);
     }
     .icon {
       cursor: pointer;
     }
+  }
+
+  .icon {
+    cursor: pointer;
   }
 }
