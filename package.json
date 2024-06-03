@@ -13,7 +13,8 @@
     "lint": "npm run lint:js && npm run prettier --check",
     "lintfix": "prettier --write --list-different . && npm run lint:js --fix",
     "prettier": "prettier --write \"**/*.{js,vue}\"",
-    "prettier:fix": "prettier --write . --fix"
+    "prettier:fix": "prettier --write . --fix",
+    "test": "nuxt test"
   },
   "dependencies": {
     "@nuxt/image": "^1.7.0",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxt/eslint-config": "^0.2.0",
+    "@nuxt/test-utils": "^3.13.1",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
