@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
 export default defineComponent({
-  name: "MoleculesModal",
+  name: "OrganismsModal",
   props: {
     typeTag: {
       type: String,
@@ -62,10 +62,10 @@ export default defineComponent({
 
     const addTag = (event: any) => {
       const selectedTag = event.target.value;
-      if (selectedTags.value.includes(selectedTag)) {
-        return [];
+      if (!selectedTags.value.includes(selectedTag)) {
+        selectedTags.value.push(selectedTag);
       }
-      selectedTags.value.push(selectedTag);
+      return [];
     };
 
     const removeTag = (tag: string) => {
@@ -104,7 +104,7 @@ export default defineComponent({
       />
     </section>
     <div class="modal-content__select">
-      <select class="select-tag" @change="addTag">
+      <select class="select-tag" @click="addTag">
         <option value="" disabled selected>
           <AtomsParagraphTitle
             size="medium"
@@ -131,7 +131,10 @@ export default defineComponent({
         @onClose="removeTag"
       />
     </div>
-    <article></article>
+    <article class="modal-content__button">
+      <moleculesButton size="primary" type="default" text="Save" />
+      <moleculesButton size="small" text="Cancel" />
+    </article>
   </aside>
 </template>
 <style scoped lang="scss">

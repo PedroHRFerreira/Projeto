@@ -11,13 +11,12 @@
   cursor: pointer;
 
   &.small {
-    width: auto;
+    width: 40%;
     line-height: 10px;
   }
 
   &.primary {
-    width: 100%;
-    padding: 10px 12px;
+    width: 50%;
     line-height: 10.4px;
   }
 

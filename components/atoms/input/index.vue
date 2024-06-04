@@ -27,7 +27,7 @@ export default defineComponent({
     },
     maxWidth: {
       type: String,
-      default: "300px",
+      default: "auto",
     },
     width: {
       type: String,
