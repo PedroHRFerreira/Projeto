@@ -26,18 +26,13 @@ export default defineComponent({
       default: "Button test",
     },
   },
-  emits: ["Onclick", "OffClick"],
+  emits: ["Onclick"],
   setup(props, { emit }) {
     const ButtonClick = () => {
       emit("Onclick");
     };
-
-    const cancel = () => {
-      emit("OffClick");
-    };
     return {
       ButtonClick,
-      cancel,
     };
   },
 });
@@ -47,7 +42,6 @@ export default defineComponent({
     class="recreational-button"
     :class="[size, type]"
     @click="ButtonClick"
-    @close="cancel"
   >
     <AtomsParagraphTitle :size="sizeText" :text="text" />
   </button>

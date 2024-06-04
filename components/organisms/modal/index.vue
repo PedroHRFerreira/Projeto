@@ -72,12 +72,27 @@ export default defineComponent({
       selectedTags.value = selectedTags.value.filter((t: string) => t !== tag);
     };
 
+    const save = () => {
+      const tagsEvent = selectedTags.value.map((x: any) => x.value);
+      if (tagsEvent.length > 0) {
+        console.log("respostas:", selectedTags.value);
+      } else {
+        return;
+      }
+    };
+
+    const clearTag = () => {
+      selectedTags.value = [];
+    };
+
     return {
       items,
       multipleTags,
       selectedTags,
       addTag,
       removeTag,
+      save,
+      clearTag,
     };
   },
 });
@@ -132,8 +147,13 @@ export default defineComponent({
       />
     </div>
     <article class="modal-content__button">
-      <moleculesButton size="primary" type="default" text="Save" />
-      <moleculesButton size="small" text="Cancel" />
+      <moleculesButton
+        size="primary"
+        type="default"
+        text="Save"
+        @Onclick="save"
+      />
+      <moleculesButton size="small" text="Cancel" @Onclick="clearTag" />
     </article>
   </aside>
 </template>

@@ -34,38 +34,21 @@
 
   &.default {
     border-radius: 6px;
-    background-image: linear-gradient(
-      to right,
-      var(--neutralLightGrey1),
-      var(--auxiliary-green-700)
-    );
-    box-shadow: 0px 4px 14px var(--auxiliary-green-600);
-    transition: left 0.8s;
+    box-shadow: 0px 4px 14px var(--auxiliary-green-700);
+    transition: background-color 0.6s ease;
 
     &:hover {
-      background-image: linear-gradient(
-        to left,
-        var(--neutralLightGrey1),
-        var(--auxiliary-green-700)
-      );
+      background-color: var(--auxiliary-green-700);
     }
   }
 
   &.cancel {
     border-radius: 6px;
-    background-image: linear-gradient(
-      to right,
-      var(--neutralLightGrey1),
-      var(--auxiliary-red-600)
-    );
     box-shadow: 0px 4px 14px var(--auxiliary-red-600);
+    transition: background-color 0.6s ease;
 
     &:hover {
-      background-image: linear-gradient(
-        to left,
-        var(--neutralLightGrey1),
-        var(--auxiliary-red-600)
-      );
+      background-color: var(--auxiliary-red-600);
     }
   }
 }
