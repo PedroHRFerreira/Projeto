@@ -1,22 +1,15 @@
 <script lang="ts">
-import { computed, ref, defineComponent } from "vue";
+import { ref, defineComponent } from "vue";
 export default defineComponent({
   name: "MoleculesDropdown",
+  props: {
+    profile: {
+      type: Array,
+      default: () => [],
+    },
+  },
 
   setup() {
-    const profile = computed(() => {
-      return [
-        {
-          url: "#",
-          text: "Opção 1",
-        },
-        {
-          url: "#",
-          text: "Opção 2",
-        },
-      ];
-    });
-
     const isVisible = ref(false);
 
     const showDropdown = () => {
@@ -27,7 +20,6 @@ export default defineComponent({
       isVisible.value = false;
     };
     return {
-      profile,
       isVisible,
       showDropdown,
       hideDropdown,
@@ -36,7 +28,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <aside class="dropdown-content">
+  <aside class="dropdown-content" @mouseleave="hideDropdown">
     <div class="dropdown-content__section">
       <AtomsParagraphTitle
         class="show-dropdown"
@@ -44,13 +36,11 @@ export default defineComponent({
         text="Perfil"
         @mouseenter="showDropdown"
       />
-      <div
-        v-if="isVisible"
-        class="dropdown-content__show"
-        @mouseleave="hideDropdown"
-      >
-        <AtomsInternalLink class="link" :items="profile" />
-      </div>
+      <transition v-if="isVisible">
+        <div class="dropdown-content__show">
+          <AtomsInternalLink class="link" :items="profile" />
+        </div>
+      </transition>
     </div>
   </aside>
 </template>

@@ -1,9 +1,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "IndexPage",
+  name: "myProfilePage",
 });
 </script>
 <template>
-  <OrganismsNavBar />
+  <div>test</div>
 </template>

@@ -13,10 +13,6 @@ export default defineComponent({
           icon: "github-fill-svgrepo-com",
           text: "Github",
         },
-        {
-          icon: "github-fill-svgrepo-com",
-          text: "Github",
-        },
       ];
     });
 
