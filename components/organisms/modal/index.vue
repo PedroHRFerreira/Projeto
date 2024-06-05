@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
+import type { Idefault } from "~/types/default";
 export default defineComponent({
   name: "OrganismsModal",
   props: {
@@ -9,25 +10,32 @@ export default defineComponent({
     },
   },
   setup() {
-    const items = computed(() => {
-      return [
-        {
-          type: "text",
-          text: "input text 1",
-          value: null,
-        },
-        {
-          type: "number",
-          text: "input text 2",
-          value: null,
-        },
-        {
-          type: "text",
-          text: "input text 3",
-          value: null,
-        },
-      ];
+    const itemValues = ref<Idefault>({
+      email: "",
+      age: 0,
+      obs: "",
     });
+
+    const items = computed(() => [
+      {
+        key: "email",
+        type: "text",
+        text: "Email",
+        value: itemValues.value.email,
+      },
+      {
+        key: "age",
+        type: "number",
+        text: "Age",
+        value: itemValues.value.age,
+      },
+      {
+        key: "obs",
+        type: "text",
+        text: "Obs",
+        value: itemValues.value.obs,
+      },
+    ]);
 
     const multipleTags = computed(() => {
       return [
@@ -72,17 +80,33 @@ export default defineComponent({
       selectedTags.value = selectedTags.value.filter((t: string) => t !== tag);
     };
 
+    const validate = () => {
+      const { email, age, obs } = itemValues.value;
+      return email.trim() !== "" && age > 0 && obs.trim() !== "";
+    };
+
     const save = () => {
-      const tagsEvent = selectedTags.value.map((x: any) => x.value);
-      if (tagsEvent.length > 0) {
-        console.log("respostas:", selectedTags.value);
+      if (validate()) {
+        console.log("respostas:", itemValues.value, selectedTags.value);
       } else {
-        return;
+        alert("Todos os campos devem ser preenchidos.");
       }
     };
 
     const clearTag = () => {
       selectedTags.value = [];
+    };
+
+    const updateValue = (event: InputEvent, field: keyof Idefault) => {
+      if (itemValues.value) {
+        if (field === "age") {
+          itemValues.value.age = Number(
+            (event.target as HTMLInputElement).value,
+          );
+        } else {
+          itemValues.value[field] = (event.target as HTMLInputElement).value;
+        }
+      }
     };
 
     return {
@@ -93,6 +117,7 @@ export default defineComponent({
       removeTag,
       save,
       clearTag,
+      updateValue,
     };
   },
 });
@@ -103,11 +128,7 @@ export default defineComponent({
       <div class="icon">
         <AtomsIconSVG name="rocket-lunch" />
       </div>
-      <AtomsParagraphTitle
-        size="medium"
-        text="Title in modal"
-        types="primary"
-      />
+      <AtomsParagraphTitle size="medium" text="Profile modal" types="primary" />
     </div>
     <section class="modal-content__section">
       <AtomsInput
@@ -116,6 +137,7 @@ export default defineComponent({
         :type="item.type"
         :placeholder="item.text"
         :value="item.value"
+        @input="($event) => updateValue($event, item.key)"
       />
     </section>
     <div class="modal-content__select">

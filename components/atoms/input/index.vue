@@ -103,7 +103,6 @@ export default defineComponent({
     };
 
     const clickInput = () => {
-      console.log("click in title");
       emit("onClick");
     };
 
