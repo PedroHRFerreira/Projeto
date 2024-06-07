@@ -13,7 +13,7 @@ export default defineComponent({
     },
     color: {
       type: String,
-      default: "black",
+      default: "red",
     },
     fontWeight: {
       type: [String, Number],

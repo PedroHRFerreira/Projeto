@@ -1,0 +1,16 @@
+.nav-bar {
+  width: 200px;
+  height: 50%;
+  padding: 10px;
+
+  &__content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+
+    &__profile {
+      margin-top: 480px;
+    }
+  }
+}

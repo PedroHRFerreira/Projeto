@@ -1,9 +1,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "IndexPage",
+  name: "AboutPage",
 });
 </script>
 <template>
-  <OrganismsNavBar />
+  <div class="color">test About</div>
 </template>
+<style scoped lang="scss">
+.color {
+  color: red;
+}
+</style>
