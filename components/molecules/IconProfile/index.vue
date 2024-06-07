@@ -10,8 +10,8 @@ export default defineComponent({
           text: "Github",
         },
         {
-          icon: "github-fill-svgrepo-com",
-          text: "Github",
+          icon: "instagram-svgrepo-com",
+          text: "Instagram",
         },
       ];
     });

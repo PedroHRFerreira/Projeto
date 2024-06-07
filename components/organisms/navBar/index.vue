@@ -25,7 +25,9 @@ export default defineComponent({
 <template>
   <aside class="nav-bar">
     <div class="nav-bar__content">
-      <MoleculesDropdown :profile="myProfile" style="height: 300px" />
+      <MoleculesDropdown :profile="myProfile" style="height: 300px"
+        >test</MoleculesDropdown
+      >
       <div class="nav-bar__content__profile">
         <MoleculesIconProfile />
       </div>
