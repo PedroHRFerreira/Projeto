@@ -1,5 +1,5 @@
 export interface Idefault {
   email: string;
-  age: number;
+  age: string;
   obs: string;
 }

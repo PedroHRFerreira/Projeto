@@ -10,27 +10,30 @@ export default defineComponent({
     },
   },
   setup() {
+    const isVisible = ref(false);
+
+    const showModal = () => {
+      isVisible.value = !isVisible.value;
+    };
+
     const itemValues = ref<Idefault>({
-      email: "",
-      age: 0,
-      obs: "",
+      email: "devpedrohr@gmail.com",
+      age: "17",
+      obs: "Dev",
     });
 
     const items = computed(() => [
       {
-        key: "email",
         type: "text",
         text: "Email",
         value: itemValues.value.email,
       },
       {
-        key: "age",
         type: "number",
         text: "Age",
         value: itemValues.value.age,
       },
       {
-        key: "obs",
         type: "text",
         text: "Obs",
         value: itemValues.value.obs,
@@ -81,12 +84,10 @@ export default defineComponent({
     };
 
     const validate = () => {
-      const { email, age, obs } = itemValues.value;
-      return email.trim() !== "" && age > 0 && obs.trim() !== "";
+      return Object.values(itemValues.value).every((value) => value);
     };
-
     const save = () => {
-      if (validate()) {
+      if (validate() && selectedTags.value.length > 0) {
         console.log("respostas:", itemValues.value, selectedTags.value);
       } else {
         alert("Todos os campos devem ser preenchidos.");
@@ -97,19 +98,14 @@ export default defineComponent({
       selectedTags.value = [];
     };
 
-    const updateValue = (event: InputEvent, field: keyof Idefault) => {
-      if (itemValues.value) {
-        if (field === "age") {
-          itemValues.value.age = Number(
-            (event.target as HTMLInputElement).value,
-          );
-        } else {
-          itemValues.value[field] = (event.target as HTMLInputElement).value;
-        }
-      }
+    const updateItemValue = (index: number, value: string) => {
+      const keys = Object.keys(itemValues.value) as (keyof Idefault)[];
+      itemValues.value[keys[index]] = value;
     };
 
     return {
+      isVisible,
+      showModal,
       items,
       multipleTags,
       selectedTags,
@@ -117,67 +113,77 @@ export default defineComponent({
       removeTag,
       save,
       clearTag,
-      updateValue,
+      updateItemValue,
     };
   },
 });
 </script>
 <template>
-  <aside class="modal-content">
-    <div class="modal-content__title">
-      <div class="icon">
-        <AtomsIconSVG name="rocket-lunch" />
+  <div class="section">
+    <div v-if="!isVisible" class="icon-active">
+      <AtomsIconSVG name="rocket-lunch" @click="showModal" />
+    </div>
+    <aside v-if="isVisible" class="modal-content">
+      <div class="modal-content__title">
+        <div class="icon">
+          <AtomsIconSVG name="rocket-lunch" @click="showModal" />
+        </div>
+        <AtomsParagraphTitle
+          size="medium"
+          text="Profile modal"
+          types="primary"
+        />
       </div>
-      <AtomsParagraphTitle size="medium" text="Profile modal" types="primary" />
-    </div>
-    <section class="modal-content__section">
-      <AtomsInput
-        v-for="(item, index) in items"
-        :key="index"
-        :type="item.type"
-        :placeholder="item.text"
-        :value="item.value"
-        @input="($event) => updateValue($event, item.key)"
-      />
-    </section>
-    <div class="modal-content__select">
-      <select class="select-tag" @click="addTag">
-        <option value="" disabled selected>
-          <AtomsParagraphTitle
-            size="medium"
-            text="Select a tag"
-            types="primary"
-          />
-        </option>
-        <option
-          v-for="(tag, index) in multipleTags"
+      <section class="modal-content__section">
+        <AtomsInput
+          v-for="(item, index) in items"
+          class="input"
           :key="index"
-          :value="tag.textTag"
-        >
-          {{ tag.textTag }}
-        </option>
-      </select>
-    </div>
-    <div class="modal-content__tag">
-      <AtomsTag
-        v-for="(tag, index) in selectedTags"
-        :key="index"
-        :text="tag"
-        :type="typeTag"
-        class="tag-content"
-        @onClose="removeTag"
-      />
-    </div>
-    <article class="modal-content__button">
-      <moleculesButton
-        size="primary"
-        type="default"
-        text="Save"
-        @Onclick="save"
-      />
-      <moleculesButton size="small" text="Cancel" @Onclick="clearTag" />
-    </article>
-  </aside>
+          :type="item.type"
+          :placeholder="item.text"
+          :value="item.value"
+          @onInput="updateItemValue(index, $event.target.value)"
+        />
+      </section>
+      <div class="modal-content__select">
+        <select class="select-tag" @click="addTag">
+          <option class="select-options" value="" disabled selected>
+            <AtomsParagraphTitle
+              size="medium"
+              types="primary"
+              text="Select a tag"
+            />
+          </option>
+          <option
+            v-for="(tag, index) in multipleTags"
+            :key="index"
+            :value="tag.textTag"
+          >
+            {{ tag.textTag }}
+          </option>
+        </select>
+      </div>
+      <div class="modal-content__tag">
+        <AtomsTag
+          v-for="(tag, index) in selectedTags"
+          :key="index"
+          :text="tag"
+          :type="typeTag"
+          class="tag-content"
+          @onClose="removeTag"
+        />
+      </div>
+      <article class="modal-content__button">
+        <moleculesButton size="primary" text="Save" @Onclick="save" />
+        <moleculesButton
+          size="small"
+          type="cancel"
+          text="Cancel"
+          @Onclick="clearTag"
+        />
+      </article>
+    </aside>
+  </div>
 </template>
 <style scoped lang="scss">
 @import "styles.module.scss";
