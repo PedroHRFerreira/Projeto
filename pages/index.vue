@@ -5,5 +5,5 @@ export default defineComponent({
 });
 </script>
 <template>
-  <OrganismsModal />
+  <OrganismsMain />
 </template>
