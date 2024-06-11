@@ -12,9 +12,9 @@ export default defineComponent({
     },
     type: {
       type: String,
-      default: "cancel",
+      default: "default",
       validator: (value: string) => {
-        return ["dafult", "cancel"].includes(value);
+        return ["default", "cancel"].includes(value);
       },
     },
     sizeText: {

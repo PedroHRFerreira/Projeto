@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
+import type { Idefault } from "~/types/default";
 export default defineComponent({
   name: "OrganismsModal",
   props: {
@@ -9,25 +10,35 @@ export default defineComponent({
     },
   },
   setup() {
-    const items = computed(() => {
-      return [
-        {
-          type: "text",
-          text: "input text 1",
-          value: null,
-        },
-        {
-          type: "number",
-          text: "input text 2",
-          value: null,
-        },
-        {
-          type: "text",
-          text: "input text 3",
-          value: null,
-        },
-      ];
+    const isVisible = ref(false);
+
+    const showModal = () => {
+      isVisible.value = !isVisible.value;
+    };
+
+    const itemValues = ref<Idefault>({
+      email: "devpedrohr@gmail.com",
+      age: "17",
+      obs: "Dev",
     });
+
+    const items = computed(() => [
+      {
+        type: "text",
+        text: "Email",
+        value: itemValues.value.email,
+      },
+      {
+        type: "number",
+        text: "Age",
+        value: itemValues.value.age,
+      },
+      {
+        type: "text",
+        text: "Obs",
+        value: itemValues.value.obs,
+      },
+    ]);
 
     const multipleTags = computed(() => {
       return [
@@ -72,12 +83,14 @@ export default defineComponent({
       selectedTags.value = selectedTags.value.filter((t: string) => t !== tag);
     };
 
+    const validate = () => {
+      return Object.values(itemValues.value).every((value) => value);
+    };
     const save = () => {
-      const tagsEvent = selectedTags.value.map((x: any) => x.value);
-      if (tagsEvent.length > 0) {
-        console.log("respostas:", selectedTags.value);
+      if (validate() && selectedTags.value.length > 0) {
+        console.log("respostas:", itemValues.value, selectedTags.value);
       } else {
-        return;
+        alert("Todos os campos devem ser preenchidos.");
       }
     };
 
@@ -85,7 +98,14 @@ export default defineComponent({
       selectedTags.value = [];
     };
 
+    const updateItemValue = (index: number, value: string) => {
+      const keys = Object.keys(itemValues.value) as (keyof Idefault)[];
+      itemValues.value[keys[index]] = value;
+    };
+
     return {
+      isVisible,
+      showModal,
       items,
       multipleTags,
       selectedTags,
@@ -93,69 +113,77 @@ export default defineComponent({
       removeTag,
       save,
       clearTag,
+      updateItemValue,
     };
   },
 });
 </script>
 <template>
-  <aside class="modal-content">
-    <div class="modal-content__title">
-      <div class="icon">
-        <AtomsIconSVG name="rocket-lunch" />
+  <div class="section">
+    <div v-if="!isVisible" class="icon-active">
+      <AtomsIconSVG name="rocket-lunch" @click="showModal" />
+    </div>
+    <aside v-if="isVisible" class="modal-content">
+      <div class="modal-content__title">
+        <div class="icon">
+          <AtomsIconSVG name="rocket-lunch" @click="showModal" />
+        </div>
+        <AtomsParagraphTitle
+          size="medium"
+          text="Profile modal"
+          types="primary"
+        />
       </div>
-      <AtomsParagraphTitle
-        size="medium"
-        text="Title in modal"
-        types="primary"
-      />
-    </div>
-    <section class="modal-content__section">
-      <AtomsInput
-        v-for="(item, index) in items"
-        :key="index"
-        :type="item.type"
-        :placeholder="item.text"
-        :value="item.value"
-      />
-    </section>
-    <div class="modal-content__select">
-      <select class="select-tag" @click="addTag">
-        <option value="" disabled selected>
-          <AtomsParagraphTitle
-            size="medium"
-            text="Select a tag"
-            types="primary"
-          />
-        </option>
-        <option
-          v-for="(tag, index) in multipleTags"
+      <section class="modal-content__section">
+        <AtomsInput
+          v-for="(item, index) in items"
+          class="input"
           :key="index"
-          :value="tag.textTag"
-        >
-          {{ tag.textTag }}
-        </option>
-      </select>
-    </div>
-    <div class="modal-content__tag">
-      <AtomsTag
-        v-for="(tag, index) in selectedTags"
-        :key="index"
-        :text="tag"
-        :type="typeTag"
-        class="tag-content"
-        @onClose="removeTag"
-      />
-    </div>
-    <article class="modal-content__button">
-      <moleculesButton
-        size="primary"
-        type="default"
-        text="Save"
-        @Onclick="save"
-      />
-      <moleculesButton size="small" text="Cancel" @Onclick="clearTag" />
-    </article>
-  </aside>
+          :type="item.type"
+          :placeholder="item.text"
+          :value="item.value"
+          @onInput="updateItemValue(index, $event.target.value)"
+        />
+      </section>
+      <div class="modal-content__select">
+        <select class="select-tag" @click="addTag">
+          <option class="select-options" value="" disabled selected>
+            <AtomsParagraphTitle
+              size="medium"
+              types="primary"
+              text="Select a tag"
+            />
+          </option>
+          <option
+            v-for="(tag, index) in multipleTags"
+            :key="index"
+            :value="tag.textTag"
+          >
+            {{ tag.textTag }}
+          </option>
+        </select>
+      </div>
+      <div class="modal-content__tag">
+        <AtomsTag
+          v-for="(tag, index) in selectedTags"
+          :key="index"
+          :text="tag"
+          :type="typeTag"
+          class="tag-content"
+          @onClose="removeTag"
+        />
+      </div>
+      <article class="modal-content__button">
+        <moleculesButton size="primary" text="Save" @Onclick="save" />
+        <moleculesButton
+          size="small"
+          type="cancel"
+          text="Cancel"
+          @Onclick="clearTag"
+        />
+      </article>
+    </aside>
+  </div>
 </template>
 <style scoped lang="scss">
 @import "styles.module.scss";
