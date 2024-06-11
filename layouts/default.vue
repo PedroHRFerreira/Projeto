@@ -14,7 +14,7 @@ export default defineComponent({
       <OrganismsNavBar />
     </aside>
     <section class="content">
-      <slot />
+      <router-view />
     </section>
   </main>
 </template>
@@ -23,7 +23,7 @@ export default defineComponent({
 .layout {
   display: grid;
   grid-template-areas: "aside content";
-  grid-template-columns: max-content 10px 1fr;
+  grid-template-columns: max-content 1fr;
   min-height: 100vh;
   transition: 0.5s ease-in-out;
   overflow: auto;
