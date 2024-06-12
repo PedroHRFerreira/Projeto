@@ -1,4 +1,4 @@
-.recreational-button {
+@mixin recreational-button() {
   max-width: 300px;
   height: auto;
   display: flex;
@@ -9,27 +9,30 @@
   border: none;
   z-index: 10;
   cursor: pointer;
+}
+@mixin width($width, $lineHeight, $padding: 0) {
+  width: $width;
+  line-height: $lineHeight;
+  padding: $padding;
+}
+
+.recreational-button {
+  @include recreational-button();
 
   &.small {
-    width: 40%;
-    line-height: 10px;
+    @include width(40%, 10px);
   }
 
   &.primary {
-    width: 50%;
-    line-height: 10.4px;
+    @include width(50%, 10.4px);
   }
 
   &.medium {
-    width: 100%;
-    padding: 12px 14px;
-    line-height: 12.2px;
+    @include width(100%, 12.2px, 12px 14px);
   }
 
   &.big {
-    width: 100%;
-    padding: 12px 14px;
-    line-height: 24.7px;
+    @include width(100%, 24.7px, 12px 14px);
   }
 
   &.default {

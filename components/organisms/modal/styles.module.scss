@@ -1,5 +1,26 @@
+@mixin flex-direction($flex-direction) {
+  display: flex;
+  flex-direction: $flex-direction;
+}
+@mixin width($max-width, $width) {
+  max-width: $max-width;
+  width: $width;
+}
+@mixin padding($padding) {
+  padding: $padding;
+}
+%background-style {
+  background: black;
+}
+%box-shadow_primary {
+  box-shadow: 0px 4px 14px aqua;
+}
+%box-shadow_secondary {
+  box-shadow: 0px 4px 14px red;
+}
+
 .section {
-  padding: 50px;
+  @include padding(50px);
 
   .icon-active {
     display: flex;
@@ -7,45 +28,42 @@
     align-items: center;
     width: 30px;
     height: 30px;
-    box-shadow: 0px 4px 14px aqua;
+    @extend %box-shadow_primary;
     border-radius: 6px;
-    padding: 8px;
+    @include padding(8px);
     cursor: pointer;
   }
 }
 .modal-content {
-  max-width: 360px;
-  width: 100%;
+  @include width(360px, 100%);
 
-  background: black;
-  box-shadow: 0px 4px 14px red;
+  @extend %background-style;
+  @extend %box-shadow_secondary;
   z-index: 10;
   border-radius: 6px;
-  padding: 10px;
+  @include padding(10px);
 
   &__title {
     position: relative;
     height: auto;
-    display: flex;
-    flex-direction: row;
+    @include flex-direction(row);
     gap: 15px;
     align-items: center;
-    padding: 0 5px;
+    @include padding(0 10px);
     left: 10px;
 
     .icon {
-      box-shadow: 0px 4px 14px aqua;
+      @extend %box-shadow_primary;
       border-radius: 6px;
-      padding: 8px;
+      @include padding(8px);
       cursor: pointer;
     }
   }
 
   &__section {
-    display: flex;
-    flex-direction: column;
+    @include flex-direction(column);
     gap: 20px;
-    padding: 10px;
+    @include padding(10px);
 
     .input {
       cursor: not-allowed;
@@ -53,14 +71,12 @@
   }
 
   &__select {
-    display: flex;
-    flex-direction: row;
-    padding: 10px 0px;
+    @include flex-direction(row);
+    @include padding(10px 0px);
     padding-left: 12px;
 
     .select-tag {
-      max-width: 340px;
-      width: 100%;
+      @include width(340px, 100%);
       height: 40px;
       border-radius: 6px;
       cursor: pointer;
@@ -76,10 +92,9 @@
     height: 40px;
     overflow: auto;
     flex-wrap: wrap;
-    padding: 20px 0px;
+    @include padding(20px 0px);
     padding-left: 12px;
-    display: flex;
-    flex-direction: row;
+    @include flex-direction(row);
     gap: 20px;
 
     .tag-content {
@@ -90,10 +105,9 @@
 
   &__button {
     width: 100%;
-    display: flex;
-    flex-direction: row;
+    @include flex-direction(row);
     justify-content: space-evenly;
-    padding: 10px 0px;
+    @include padding(10px 0px);
     z-index: 20px;
   }
 }

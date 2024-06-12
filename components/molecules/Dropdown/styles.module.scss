@@ -1,3 +1,9 @@
+%flex-direct {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .dropdown-content {
   max-width: 100px;
   width: 100%;
@@ -5,8 +11,7 @@
 
   &__section {
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    @extend %flex-direct;
   }
 
   .show-dropdown {
@@ -24,9 +29,7 @@
     .link {
       padding: 10px;
       width: 100%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
+      @extend %flex-direct;
     }
   }
 }

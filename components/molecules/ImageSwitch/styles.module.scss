@@ -1,15 +1,18 @@
+@mixin flex-direction($flex-direction, $gap: 0px) {
+  display: flex;
+  align-items: center;
+  flex-direction: $flex-direction;
+  gap: $gap;
+}
+
 .card-image--text {
   padding: 10px;
-  display: flex;
-  flex-direction: column;
+  @include flex-direction(column);
 
   &__content {
     max-width: 350px;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
+    @include flex-direction(row, 20px);
 
     .switch {
       width: 120px;

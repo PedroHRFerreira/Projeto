@@ -1,14 +1,16 @@
-.section {
+@mixin flex-direction($flex-direction, $gap: 0px) {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  flex-direction: $flex-direction;
+  align-items: center;
+  gap: $gap;
+}
+
+.section {
+  @include flex-direction(row, 20px);
 
   .icon-text {
     max-width: 80px;
     width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-direction(column);
   }
 }
