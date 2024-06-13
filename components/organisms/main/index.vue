@@ -4,7 +4,12 @@ import { useMainStore } from "~/store/main/useMainStore";
 
 export default defineComponent({
   name: "OrganismsMain",
-  props: {},
+  props: {
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     const store = useMainStore();
 
@@ -33,13 +38,16 @@ export default defineComponent({
 </script>
 
 <template>
-  <article>
-    <div class="main">
+  <article class="main_all">
+    <div class="main" :class="{ loading: isLoading }">
       <div class="main-section" v-for="(item, index) in items" :key="index">
         <AtomsParagraphTitle :text="profileData.profile" size="extra-small" />
         <AtomsParagraphTitle :text="item.title" size="extra-small" />
         <AtomsParagraphTitle :text="item.text" size="extra-small" />
       </div>
+    </div>
+    <div class="time-line">
+      <MoleculesTimeLine />
     </div>
   </article>
 </template>
