@@ -14,7 +14,7 @@ export default defineComponent({
       <OrganismsNavBar />
     </aside>
     <section class="content">
-      <router-view />
+      <slot />
     </section>
   </main>
 </template>

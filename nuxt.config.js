@@ -19,7 +19,7 @@ export default {
 
   css: ["~/assets/font/main.css"],
 
-  plugins: [],
+  plugins: ["~/composables/usePinia.ts"],
 
   components: true,
 
