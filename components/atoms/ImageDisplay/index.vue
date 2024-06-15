@@ -19,6 +19,10 @@ export default defineComponent({
       type: String,
       default: "auto",
     },
+    src: {
+      type: String,
+      default: "/static/image/image-blue.webp",
+    },
     alt: {
       type: String,
       default: "alt and test image",
@@ -54,7 +58,7 @@ export default defineComponent({
   <div class="card-image">
     <img
       class="content-image"
-      src="/static/image/image-blue.webp"
+      :src="src"
       :alt="alt"
       :style="cssVar"
       :value="value"

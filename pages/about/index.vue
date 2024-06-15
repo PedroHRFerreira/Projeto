@@ -5,10 +5,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="color">test About</div>
+  <div>
+    <OrganismsAbout />
+  </div>
 </template>
-<style scoped lang="scss">
-.color {
-  color: red;
-}
-</style>

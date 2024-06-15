@@ -12,6 +12,10 @@ export default defineComponent({
       default:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     },
+    srcImage: {
+      type: String,
+      default: "",
+    },
   },
   setup() {
     const isActive = ref(false);
@@ -29,7 +33,7 @@ export default defineComponent({
 </script>
 <template>
   <article class="card-image--text">
-    <AtomsImageDisplay :items-on="true">
+    <AtomsImageDisplay :items-on="true" :src="srcImage">
       <div class="card-image--text__content">
         <AtomsParagraphTitle :text="textSwitch" />
         <AtomsSwitch class="switch" @onSwitch="handleSwitch" />
