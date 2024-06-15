@@ -13,9 +13,12 @@
     width: 100%;
     @extend %flex-direct;
   }
+  .profile-href {
+    text-decoration: none;
 
-  .show-dropdown {
-    cursor: pointer;
+    .show-dropdown {
+      cursor: pointer;
+    }
   }
   &__show {
     display: flex;

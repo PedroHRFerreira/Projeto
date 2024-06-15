@@ -30,12 +30,14 @@ export default defineComponent({
 <template>
   <aside class="dropdown-content" @mouseleave="hideDropdown">
     <div class="dropdown-content__section">
-      <AtomsParagraphTitle
-        class="show-dropdown"
-        size="small"
-        text="Perfil"
-        @mouseenter="showDropdown"
-      />
+      <a class="profile-href" href="/">
+        <AtomsParagraphTitle
+          class="show-dropdown"
+          size="small"
+          text="Perfil"
+          @mouseenter="showDropdown"
+        />
+      </a>
       <transition v-if="isVisible">
         <div class="dropdown-content__show">
           <AtomsInternalLink class="link" :items="profile" />
