@@ -4,27 +4,9 @@
   flex-direction: $flex-direction;
   align-items: center;
 }
-@mixin rotation-text {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  align-items: baseline;
-}
-%width {
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--neutralDarkGrey8);
-  border-radius: 12px;
-}
-%animition {
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
+@mixin width($width, $height) {
+  width: $width;
+  height: $height;
 }
 
 .about-content {
@@ -33,31 +15,11 @@
   gap: 32px;
 
   &__layout {
-    width: 100%;
-    height: auto;
+    @include width(100%, auto);
     @include justify-content(row);
 
     &__text {
-      width: 40%;
-      height: 300px;
-    }
-  }
-
-  &__rotation-text {
-    @extend %width;
-    @include rotation-text;
-    overflow: hidden;
-    position: relative;
-
-    .scrolling-text {
-      display: flex;
-      animation: scroll 10s linear infinite;
-      @extend %animition;
-
-      .text {
-        white-space: nowrap;
-        margin-right: 60px;
-      }
+      @include width(40%, 300px);
     }
   }
 }

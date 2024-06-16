@@ -29,6 +29,8 @@ export const useAboutStore = defineStore("useAboutStore", {
             "about_tags-4",
             "about_tags-5",
             "about_tags-6",
+            "about_tags-7",
+            "about_tags-8",
           ],
         },
       ];

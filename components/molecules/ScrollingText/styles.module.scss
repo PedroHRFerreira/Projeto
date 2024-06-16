@@ -1,0 +1,40 @@
+@mixin rotation-text {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: baseline;
+}
+%width {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--neutralDarkGrey8);
+  border-radius: 12px;
+}
+%animition {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.about-content__rotation-text {
+  @extend %width;
+  @include rotation-text;
+  overflow: hidden;
+  position: relative;
+
+  .scrolling-text {
+    display: flex;
+    animation: scroll 10s linear infinite;
+    @extend %animition;
+
+    .text {
+      white-space: nowrap;
+      margin-right: 60px;
+    }
+  }
+}

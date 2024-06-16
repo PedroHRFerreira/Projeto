@@ -41,17 +41,7 @@ export default defineComponent({
         :src-image="aboutData[0].about_url"
       />
     </div>
-    <div class="about-content__rotation-text">
-      <div class="scrolling-text">
-        <AtomsParagraphTitle
-          v-for="(item, index) in values"
-          :key="index"
-          class="text"
-          size="extra-small"
-          :text="item"
-        />
-      </div>
-    </div>
+    <MoleculesScrollingText :items="values" />
   </article>
 </template>
 
