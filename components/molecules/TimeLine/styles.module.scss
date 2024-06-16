@@ -44,24 +44,9 @@
   width: 190px;
   height: 195px;
   border-radius: 8px;
-  overflow: scroll;
-  z-index: 20px;
+  overflow: hidden;
+  z-index: 40px;
   opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.5s ease-in-out,
-    transform 0.5s ease-in-out;
-}
-
-@keyframes card-entry {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .section {
@@ -91,11 +76,24 @@
       @extend %card;
 
       &__cards {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include align-item(column, 10px);
         width: 100%;
-        padding: 5px;
+
+        .image-card {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      @keyframes card-entry {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       &.visible {

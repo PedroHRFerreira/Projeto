@@ -20,12 +20,13 @@ export default defineComponent({
     });
 
     const items = computed(() => {
-      if (!profileData.value || !profileData.value.personalInformation) {
+      if (!profileData.value.personalInformation) {
         return [];
       }
       return profileData.value.personalInformation.map((item: any) => ({
         title: item.information,
         text: item.history,
+        img: item.url_image,
       }));
     });
 
@@ -44,6 +45,8 @@ export default defineComponent({
         <AtomsParagraphTitle :text="profileData.profile" size="extra-small" />
         <AtomsParagraphTitle :text="item.title" size="extra-small" />
         <AtomsParagraphTitle :text="item.text" size="extra-small" />
+
+        <img class="image-card" :src="item.img" alt="image" />
       </div>
     </div>
     <div class="time-line">
