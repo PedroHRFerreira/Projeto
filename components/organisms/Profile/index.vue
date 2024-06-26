@@ -6,20 +6,21 @@ export default defineComponent({
     const items = computed(() => {
       return [
         {
-          title: "Perfil:",
+          title: "Name =>",
           value: "Pedro H.Rodrigues",
         },
         {
-          title: "Perfil:",
-          value: "Pedro H.Rodrigues",
+          title: "Age =>",
+          value: "17 year",
         },
         {
-          title: "Perfil:",
-          value: "Pedro H.Rodrigues",
+          title: "Location =>",
+          value: "Governador Valadares, MG, Brazil",
         },
         {
-          title: "Perfil:",
-          value: "Pedro H.Rodrigues",
+          title: "Interesses =>",
+          value:
+            " Desenvolvimento Web. Programação Funcional ,Desenvolvimento de Aplicações Modernas, Explorar Novas Tecnologias",
         },
       ];
     });
@@ -67,13 +68,9 @@ export default defineComponent({
             :key="index"
             class="profile-content__main__section-title__section__text"
           >
+            <AtomsParagraphTitle class="text" size="small" :text="item.title" />
             <AtomsParagraphTitle
-              class="show-dropdown"
-              size="small"
-              :text="item.title"
-            />
-            <AtomsParagraphTitle
-              class="show-dropdown"
+              class="text"
               size="extra-small"
               :text="item.value"
             />

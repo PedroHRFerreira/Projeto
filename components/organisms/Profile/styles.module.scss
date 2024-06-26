@@ -57,6 +57,12 @@
 
         &__text {
           @include flex-direction(row);
+          flex-wrap: wrap;
+
+          .text {
+            @include flex-direction(column);
+            word-wrap: break-word;
+          }
         }
       }
 
