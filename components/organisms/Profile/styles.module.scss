@@ -2,9 +2,9 @@
   width: 100%;
   height: $height;
 }
-@mixin flex-direction($flex-direction) {
+@mixin flex-direction($flex-direction, $justify-content: center) {
   display: flex;
-  justify-content: center;
+  justify-content: $justify-content;
   flex-direction: $flex-direction;
   align-items: center;
 }
@@ -13,76 +13,78 @@
   padding: 10px;
   border-radius: 6px;
 }
+.main-profile {
+  @include flex-direction(row, space-evenly);
+  padding: 40px 0px;
 
-.profile-content {
-  @include width(auto);
-
-  @keyframes animation {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0%);
-    }
-  }
-
-  &__main {
-    max-width: 500px;
-    @include width(auto);
-    box-shadow:
-      0px 4px 14px var(--neutralDarkGrey3),
-      0px 4px 14px var(--brandPrimary6);
-    border-radius: 4px;
-    padding: 10px;
-
-    &__section-title {
-      @include flex-direction(column);
-      gap: 32px;
-
-      &__cmicon {
-        @include flex-direction(row-reverse);
-        gap: 12px;
-
-        .title {
-          animation: animation 1s forwards;
-        }
-        .icon {
-          animation: animation 1s forwards;
-        }
+  .profile-content {
+    @keyframes animation {
+      from {
+        transform: translateX(100%);
       }
+      to {
+        transform: translateX(0%);
+      }
+    }
 
-      &__section {
+    &__main {
+      max-width: 500px;
+      @include width(auto);
+      box-shadow:
+        0px 4px 14px var(--neutralDarkGrey3),
+        0px 4px 14px var(--brandPrimary6);
+      border-radius: 4px;
+      padding: 10px;
+
+      &__section-title {
         @include flex-direction(column);
-        @extend %border;
+        gap: 32px;
 
-        &__text {
-          @include flex-direction(row);
-          flex-wrap: wrap;
+        &__cmicon {
+          @include flex-direction(row-reverse);
+          gap: 12px;
 
-          .text {
-            @include flex-direction(column);
-            word-wrap: break-word;
+          .title {
+            animation: animation 1s forwards;
+          }
+          .icon {
+            animation: animation 1s forwards;
           }
         }
-      }
 
-      &__Button {
-        @include flex-direction(row);
-        width: 100%;
+        &__section {
+          @include flex-direction(column);
+          @extend %border;
+
+          &__text {
+            @include flex-direction(row);
+            flex-wrap: wrap;
+
+            .text {
+              @include flex-direction(column);
+              word-wrap: break-word;
+            }
+          }
+        }
+
+        &__Button {
+          @include flex-direction(row);
+          width: 100%;
+        }
       }
     }
-  }
 
-  .modal {
-    @include flex-direction(row);
-    position: fixed;
-    height: 60px;
-    top: 90%;
-    left: 91%;
-    background: var(--brandPrimary6);
-    box-shadow: 0 2px 10px var(--brandPrimary4);
-    border-radius: 8px;
-    z-index: 1000;
-    animation: animation 1s forwards;
+    .modal {
+      @include flex-direction(row);
+      position: fixed;
+      height: 60px;
+      top: 90%;
+      left: 91%;
+      background: var(--brandPrimary6);
+      box-shadow: 0 2px 10px var(--brandPrimary4);
+      border-radius: 8px;
+      z-index: 1000;
+      animation: animation 1s forwards;
+    }
   }
 }
