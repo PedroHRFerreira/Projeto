@@ -23,23 +23,23 @@ export const useMainStore = defineStore("useMainStore", {
           profile: 1,
           personalInformation: [
             {
-              information: "What is Lorem Ipsum?",
+              information: "Coragem, o Cão Covarde",
               history:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Coragem, o Cão Covarde conta a história de Coragem, um cachorro facilmente assustado que vive em uma fazenda com Muriel e Eustácio Bagge, na cidade de Lugar Nenhum, no Kansas. Abandonado quando filhote, Coragem foi encontrado em um beco por Muriel Bagge, uma mulher escocesa de natureza doce e seu marido Eustácio.",
               url_image:
                 "https://segredosdomundo.r7.com/wp-content/uploads/2015/08/13-teorias-da-conspiracao-chocantes-sobre-desenhos-animados.png",
             },
             {
-              information: "teste de informações2",
+              information: "Brian Griffin",
               history:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                " é um personagem fictício da sitcom animada americana Family Guy . Ele é um dos personagens principais da série e um membro da família Griffin . Criado, desenhado e dublado por Seth MacFarlane , ele é um labrador retriever branco antropomórfico que é o melhor amigo de Stewie Griffin e personagem cômico com a habilidade de falar, dirigir e ficar em pé sobre duas pernas.",
               url_image:
                 "https://www.guiadasemana.com.br/contentFiles/system/pictures/2015/6/138077/original/o-brian-griffin-facebook.jpg",
             },
             {
-              information: "teste de informações2",
+              information: "George Jetson",
               history:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "George reside com sua família e seu cachorro Astro nos Skypad Apartments [20] em Orbit City, em um futuro com as armadilhas das representações de fantasia científica da vida americana no futuro, como servos robôs , carros semelhantes a discos voadores e carros em movimento calçadas Todos os prédios de apartamentos estão montados em postes gigantes.",
               url_image:
                 "https://arteref.com/wp-content/uploads/2019/04/george-jetson.jpg",
             },

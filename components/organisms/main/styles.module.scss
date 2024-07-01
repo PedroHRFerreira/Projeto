@@ -4,11 +4,16 @@
   flex-direction: column;
   gap: $gap;
 }
+@mixin animition($animation-name, $animation-iteration-count) {
+  animation-duration: 6s;
+  animation-name: $animation-name;
+  animation-iteration-count: $animation-iteration-count;
+}
 %main-section {
   padding: 10px;
   width: 25%;
   height: 475px;
-  box-shadow: 6px 6px 16px #8a2be2;
+  box-shadow: 6px 6px 16px #800c26;
   border-radius: 6px;
   overflow: hidden;
 }
@@ -29,9 +34,49 @@
 
     .main-section {
       @extend %main-section;
+      @include animition(cardsAnimations, 6);
+
+      @keyframes cardsAnimations {
+        0% {
+          transform: scale(1) rotate(0deg);
+          opacity: 1;
+        }
+        25% {
+          transform: scale(1.1) rotate(10deg);
+          opacity: 0.8;
+        }
+        50% {
+          transform: scale(1) rotate(0deg);
+          opacity: 1;
+        }
+        75% {
+          transform: scale(1.1) rotate(-10deg);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1) rotate(0deg);
+          opacity: 1;
+        }
+      }
 
       .image-card {
         @extend %image;
+        @include animition(imageAnimation, infinite);
+
+        @keyframes imageAnimation {
+          0% {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.2) translateY(10px);
+            opacity: 0.8;
+          }
+          100% {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+          }
+        }
       }
     }
   }
