@@ -20,7 +20,7 @@ export default defineComponent({
         setTimeout(() => {
           visibleCards.value.push(index);
         }, delay);
-        delay += 1200;
+        delay += 1300;
       });
 
       setTimeout(
@@ -28,23 +28,23 @@ export default defineComponent({
           isVisible.value = false;
           visibleCards.value = [];
         },
-        cards.value.length * 1000 + 13000,
+        cards.value.length * 1000 + 14000,
       );
     };
 
     const cards = computed(() => {
       return [
         {
-          text: "But I must explain to you how all this mistaken idea of denouncing pleasure.",
+          text: "Os Planetas são corpos celestes sem luz e calor próprios, esféricos e com gravidade própria.",
         },
         {
-          text: "But I must explain to you how all this mistaken idea of denouncing pleasure.",
+          text: "Assim, no espaço onde o frio chega a 270 °C abaixo de zero.",
         },
         {
-          text: "But I must explain to you how all this mistaken idea of denouncing pleasure.",
+          text: "A cosmologia calcula que os planetas do Sistema Solar tenham se formado há aproximadamente 4,6 bilhões de anos.",
         },
         {
-          text: "But I must explain to you how all this mistaken idea of denouncing pleasure.",
+          text: "No entanto, fora do sistema solar, a formação de planetas pode ter se dado há mais tempo.",
         },
       ];
     });
@@ -95,6 +95,7 @@ export default defineComponent({
             alt="image"
           />
           <AtomsParagraphTitle
+            class="text-card"
             size="extra-small"
             :text="card.text"
             types="primary"
