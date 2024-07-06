@@ -6,6 +6,6 @@ export default defineComponent({
 </script>
 <template>
   <div>
-    <OrganismsAbout />
+    <TemplatesAboutPg />
   </div>
 </template>

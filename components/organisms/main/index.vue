@@ -5,7 +5,7 @@ import { useMainStore } from "~/store/main/useMainStore";
 export default defineComponent({
   name: "OrganismsMain",
   props: {
-    isLoading: {
+    showEmptyState: {
       type: Boolean,
       default: false,
     },
@@ -39,8 +39,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <article class="main_all">
-    <div class="main" :class="{ loading: isLoading }">
+  <article v-if="!showEmptyState" class="main_all">
+    <div class="main">
       <div class="main-section" v-for="(item, index) in items" :key="index">
         <AtomsParagraphTitle :text="profileData.profile" size="extra-small" />
         <AtomsParagraphTitle :text="item.title" size="extra-small" />
@@ -53,6 +53,7 @@ export default defineComponent({
       <MoleculesTimeLine />
     </div>
   </article>
+  <MoleculesEmpty v-else />
 </template>
 
 <style scoped lang="scss">
