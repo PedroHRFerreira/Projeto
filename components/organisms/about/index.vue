@@ -5,7 +5,7 @@ import { useAboutStore } from "~/store/about/useAboutStore";
 export default defineComponent({
   name: "OrganismsAbout",
   props: {
-    isLoading: {
+    showEmptyState: {
       type: Boolean,
       default: false,
     },
@@ -31,7 +31,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <article class="about-content" :class="{ loading: isLoading }">
+  <article v-if="!showEmptyState" class="about-content">
     <div v-if="aboutData.length > 0" class="about-content__layout">
       <div class="about-content__layout__text">
         <AtomsParagraphTitle size="small" :text="aboutData[0].about_text" />
@@ -43,6 +43,7 @@ export default defineComponent({
     </div>
     <MoleculesScrollingText :items="values" />
   </article>
+  <MoleculesEmpty v-else />
 </template>
 
 <style scoped lang="scss">

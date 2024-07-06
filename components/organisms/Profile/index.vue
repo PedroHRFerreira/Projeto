@@ -2,6 +2,12 @@
 import { defineComponent, computed, ref } from "vue";
 export default defineComponent({
   name: "OrganismsProfile",
+  props: {
+    showEmptyState: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     const items = computed(() => {
       return [
@@ -46,7 +52,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="main-profile">
+  <div v-if="!showEmptyState" class="main-profile">
     <aside class="profile-content">
       <article class="profile-content__main">
         <div class="profile-content__main__section-title">
@@ -98,6 +104,7 @@ export default defineComponent({
       <MoleculesSkills />
     </section>
   </div>
+  <MoleculesEmpty v-else />
 </template>
 <style scoped lang="scss">
 @import "styles.module.scss";

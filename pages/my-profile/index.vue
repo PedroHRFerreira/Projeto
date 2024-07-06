@@ -6,7 +6,7 @@ export default defineComponent({
 </script>
 <template>
   <div>
-    <OrganismsProfile />
+    <TemplatesProfilePg />
   </div>
 </template>
 <style scoped lang="scss"></style>
