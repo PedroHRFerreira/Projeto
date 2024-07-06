@@ -19,18 +19,18 @@ export const useAboutStore = defineStore("useAboutStore", {
       const payload = [
         {
           about_text:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "Pedro Henrique tem 17 anos e está iniciando sua jornada como desenvolvedor front-end na Braip, onde já acumula 1.4 meses de experiência. Ele possui um sólido domínio de JavaScript, TypeScript, Vue.js, Nuxt.js, Sass, CSS, HTML e integração com bancos de dados através de ferramentas como Workbench e DBeaver-CE. Pedro está determinado a expandir suas habilidades para se tornar um desenvolvedor full-stack. Ele busca integrar seu conhecimento front-end com competências back-end, visando criar soluções completas e eficientes para projetos desafiadores. Sua dedicação em melhorar continuamente a experiência do usuário se reflete na aplicação das melhores práticas de desenvolvimento em cada projeto que participa. Com uma paixão evidente pelo desenvolvimento web, Pedro mantém um forte compromisso com o aprendizado contínuo. Ele está sempre em busca de novos desafios que possam ampliar suas habilidades técnicas e contribuir para iniciativas inovadoras e de alto impacto no campo da tecnologia.",
           about_url:
-            "https://thumbs.dreamstime.com/b/%C3%ADcone-do-s%C3%B3lido-preto-avatar-perfil-de-usu%C3%A1rio-121102166.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc3RXLJttg1DVvV3-zvN46fyzRLQJNiFF8nddsNwvLAaWcJItB-R1LsgAizAuyCBv16SI&usqp=CAU",
           about_tags: [
-            "about_tags-1",
-            "about_tags-2",
-            "about_tags-3",
-            "about_tags-4",
-            "about_tags-5",
-            "about_tags-6",
-            "about_tags-7",
-            "about_tags-8",
+            "Dev",
+            "Trainee",
+            "Junior (JR)",
+            "full stack",
+            "Pleno (PL)",
+            "Sênior (SR)",
+            "Master",
+            "Tech Lead",
           ],
         },
       ];

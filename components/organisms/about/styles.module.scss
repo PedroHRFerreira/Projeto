@@ -19,7 +19,7 @@
     @include justify-content(row);
 
     &__text {
-      @include width(40%, 300px);
+      @include width(50%, 600px);
     }
   }
 }

@@ -1,45 +1,19 @@
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 export default defineComponent({
   name: "MoleculesImageSwitch",
   props: {
-    textSwitch: {
-      type: String,
-      default: "Lorem Ipsum:",
-    },
-    textImage: {
-      type: String,
-      default:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
     srcImage: {
       type: String,
       default: "",
     },
   },
-  setup() {
-    const isActive = ref(false);
-
-    const handleSwitch = (state: boolean) => {
-      isActive.value = state;
-    };
-
-    return {
-      isActive,
-      handleSwitch,
-    };
-  },
+  setup() {},
 });
 </script>
 <template>
   <article class="card-image--text">
-    <AtomsImageDisplay :items-on="true" :src="srcImage">
-      <div class="card-image--text__content">
-        <AtomsParagraphTitle :text="textSwitch" />
-        <AtomsSwitch class="switch" @onSwitch="handleSwitch" />
-      </div>
-      <AtomsParagraphTitle v-if="isActive" size="small" :text="textImage" />
-    </AtomsImageDisplay>
+    <AtomsImageDisplay :items-on="true" :src="srcImage"> </AtomsImageDisplay>
   </article>
 </template>
 <style scoped lang="scss">
