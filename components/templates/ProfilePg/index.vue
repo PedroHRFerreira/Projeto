@@ -1,4 +1,5 @@
 <script lang="ts">
+import { defineComponent, ref, onMounted } from "vue";
 export default defineComponent({
   name: "TemplatesProfilePg",
   setup() {
@@ -17,5 +18,10 @@ export default defineComponent({
 });
 </script>
 <template>
-  <OrganismsProfile :showEmptyState="showEmptyState" />
+  <main class="main">
+    <OrganismsProfile :showEmptyState="showEmptyState" />
+  </main>
 </template>
+<style scoped lang="scss">
+@import "styles.module.scss";
+</style>

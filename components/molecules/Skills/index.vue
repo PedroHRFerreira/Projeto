@@ -1,9 +1,15 @@
 <script lang="ts">
-import { computed, defineComponent } from "vue";
+import { computed, defineComponent, ref } from "vue";
 export default defineComponent({
   name: "MoleculesSkills",
   emits: ["onClick"],
   setup() {
+    const visible = ref(false);
+
+    const show = () => {
+      visible.value = !visible.value;
+    };
+
     const items = computed(() => {
       return [
         {
@@ -42,13 +48,16 @@ export default defineComponent({
     });
 
     return {
+      visible,
       items,
+      show,
     };
   },
 });
 </script>
 <template>
-  <article class="skills-content">
+  <AtomsParagraphTitle text="Skills" size="small" @click="show" />
+  <article v-if="visible" class="skills-content">
     <div
       v-for="(item, index) in items"
       :key="index"

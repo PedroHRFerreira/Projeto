@@ -58,7 +58,7 @@ export default defineComponent({
         <div class="profile-content__main__section-title">
           <div class="profile-content__main__section-title__cmicon">
             <AtomsParagraphTitle
-              text="Test in title"
+              text="Modal Profile"
               size="extra-small"
               class="title"
             />
@@ -86,6 +86,7 @@ export default defineComponent({
                 :text="item.value"
               />
             </div>
+            <MoleculesSkills />
           </section>
           <div class="profile-content__main__section-title__Button">
             <MoleculesButton text="copy" @click="copyInfo" />
@@ -101,7 +102,7 @@ export default defineComponent({
       </div>
     </aside>
     <section>
-      <MoleculesSkills />
+      <OrganismsModal />
     </section>
   </div>
   <MoleculesEmpty v-else />

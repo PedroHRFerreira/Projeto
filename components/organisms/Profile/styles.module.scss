@@ -15,7 +15,6 @@
 }
 .main-profile {
   @include flex-direction(row, space-evenly);
-  padding: 40px 0px;
 
   .profile-content {
     @keyframes animation {
