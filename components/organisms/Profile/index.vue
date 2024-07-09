@@ -52,59 +52,58 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div v-if="!showEmptyState" class="main-profile">
-    <aside class="profile-content">
-      <article class="profile-content__main">
-        <div class="profile-content__main__section-title">
-          <div class="profile-content__main__section-title__cmicon">
-            <AtomsParagraphTitle
-              text="Modal Profile"
-              size="extra-small"
-              class="title"
-            />
-            <AtomsIconSVG
-              class="icon"
-              name="rocket-lunch"
-              width="14px"
-              heigth="14px"
-            />
-          </div>
-          <section class="profile-content__main__section-title__section">
-            <div
-              v-for="(item, index) in items"
-              :key="index"
-              class="profile-content__main__section-title__section__text"
-            >
+  <article v-if="!showEmptyState">
+    <div class="main-profile">
+      <aside class="profile-content">
+        <article class="profile-content__main">
+          <div class="profile-content__main__section-title">
+            <div class="profile-content__main__section-title__cmicon">
               <AtomsParagraphTitle
-                class="text"
-                size="small"
-                :text="item.title"
-              />
-              <AtomsParagraphTitle
-                class="text"
+                text="Modal Profile"
                 size="extra-small"
-                :text="item.value"
+                class="title"
+              />
+              <AtomsIconSVG
+                class="icon"
+                name="rocket-lunch"
+                width="14px"
+                heigth="14px"
               />
             </div>
-            <MoleculesSkills />
-          </section>
-          <div class="profile-content__main__section-title__Button">
-            <MoleculesButton text="copy" @click="copyInfo" />
+            <section class="profile-content__main__section-title__section">
+              <div
+                v-for="(item, index) in items"
+                :key="index"
+                class="profile-content__main__section-title__section__text"
+              >
+                <AtomsParagraphTitle
+                  class="text"
+                  size="small"
+                  :text="item.title"
+                />
+                <AtomsParagraphTitle
+                  class="text"
+                  size="extra-small"
+                  :text="item.value"
+                />
+              </div>
+              <MoleculesSkills />
+            </section>
+            <div class="profile-content__main__section-title__Button">
+              <MoleculesButton text="copy" @click="copyInfo" />
+            </div>
           </div>
+        </article>
+        <div v-if="showModal" class="modal">
+          <AtomsParagraphTitle
+            class="show-dropdown"
+            size="small"
+            text="Text copied!"
+          />
         </div>
-      </article>
-      <div v-if="showModal" class="modal">
-        <AtomsParagraphTitle
-          class="show-dropdown"
-          size="small"
-          text="Text copied!"
-        />
-      </div>
-    </aside>
-    <section>
-      <OrganismsModal />
-    </section>
-  </div>
+      </aside>
+    </div>
+  </article>
   <MoleculesEmpty v-else />
 </template>
 <style scoped lang="scss">

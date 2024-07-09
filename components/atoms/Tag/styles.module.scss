@@ -53,6 +53,24 @@
       cursor: pointer;
     }
   }
+  &.none {
+    color: var(--brandPrimary6);
+    border-color: transparent;
+    border: none;
+    padding: 6px;
+    text-align: left;
+
+    @keyframes animation {
+      from {
+        font-size: 14px;
+      }
+      to {
+        font-size: 20px;
+      }
+    }
+
+    animation: animation 3s forwards;
+  }
 
   .icon {
     cursor: pointer;

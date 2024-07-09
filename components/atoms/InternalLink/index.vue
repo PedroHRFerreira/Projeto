@@ -37,7 +37,6 @@ export default defineComponent({
 
     const profileOnClick = () => {
       emit("onClick");
-      console.log("test");
     };
 
     return {
@@ -55,8 +54,11 @@ export default defineComponent({
         :style="cssVar"
         :href="item.url"
         @click="profileOnClick"
-        >{{ item.text }}</a
       >
+        <b>
+          <u>{{ item.text }}↗️</u>
+        </b>
+      </a>
     </ul>
   </div>
 </template>

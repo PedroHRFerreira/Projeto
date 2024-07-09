@@ -11,7 +11,7 @@ export default defineComponent({
       type: String,
       default: "outline",
       validator: (value: string) => {
-        return ["outline", "filter"].includes(value);
+        return ["outline", "filter", "none"].includes(value);
       },
     },
     state: {

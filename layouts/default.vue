@@ -1,17 +1,30 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
+import { useRoute } from "vue-router";
+
 export default defineComponent({
   name: "LayoutDefault",
   setup() {
-    return {};
+    const route = useRoute();
+    const isMyProfileRoute = computed(() => route.path === "/my-profile");
+
+    const isNotMyProfileRoute = computed(() => route.path !== "/my-profile");
+
+    return {
+      isMyProfileRoute,
+      isNotMyProfileRoute,
+    };
   },
 });
 </script>
 
 <template>
+  <header v-if="isMyProfileRoute">
+    <OrganismsHeader />
+  </header>
   <main class="layout">
     <aside class="aside">
-      <OrganismsNavBar />
+      <OrganismsNavBar v-if="isNotMyProfileRoute" />
     </aside>
     <section class="content">
       <slot />

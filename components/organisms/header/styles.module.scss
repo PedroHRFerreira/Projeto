@@ -1,0 +1,46 @@
+@mixin flex($justifyContent, $flexDirection) {
+  display: flex;
+  justify-content: $justifyContent;
+  flex-direction: $flexDirection;
+  align-items: center;
+}
+
+.header-nav {
+  position: relative;
+  background: var(--neutralDarkGrey2);
+  z-index: 20;
+  @include flex(flex-start, none);
+  border-radius: 6px;
+
+  &__items {
+    @include flex(space-between, row);
+    gap: 44px;
+    max-width: 580px;
+    width: 100%;
+    height: auto;
+
+    &__route {
+      @include flex(space-around, row);
+    }
+
+    &__link {
+      position: relative;
+
+      .link {
+        @include flex(space-between, row);
+        gap: 32px;
+      }
+    }
+
+    .decoration {
+      position: fixed;
+      left: 90%;
+      // max-width: 350px;
+      width: 150px;
+
+      &__btn {
+        width: 100%;
+      }
+    }
+  }
+}
