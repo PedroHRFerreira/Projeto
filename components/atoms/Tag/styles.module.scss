@@ -5,7 +5,7 @@
   justify-content: space-around;
   align-items: center;
   gap: 8px;
-  padding: 5px 10px;
+  padding: 5px 12px;
   border: solid;
   border-radius: 6px;
   font-size: 14px;
@@ -15,7 +15,7 @@
   &.outline {
     &.default {
       color: var(--brandPrimary6);
-      border-color: var(--brandPrimary6);
+      border-color: var(--neutralLightGrey8);
     }
     &.recovered,
     &.active {

@@ -15,12 +15,12 @@ export default defineComponent({
 <template>
   <div class="about-content__rotation-text">
     <div class="scrolling-text">
-      <AtomsParagraphTitle
+      <AtomsTag
         v-for="(item, index) in items"
         :key="index"
-        class="text"
-        size="extra-small"
         :text="item"
+        type="outline"
+        class="text"
       />
     </div>
   </div>

@@ -23,14 +23,15 @@ export const useAboutStore = defineStore("useAboutStore", {
           about_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc3RXLJttg1DVvV3-zvN46fyzRLQJNiFF8nddsNwvLAaWcJItB-R1LsgAizAuyCBv16SI&usqp=CAU",
           about_tags: [
-            "Dev",
-            "Trainee",
-            "Junior (JR)",
-            "full stack",
-            "Pleno (PL)",
-            "Sênior (SR)",
-            "Master",
-            "Tech Lead",
+            "Vue",
+            "Nuxt",
+            "Html5",
+            "Css3",
+            "Sass",
+            "Json",
+            "JavaScript",
+            "TypeScript",
+            "PHP",
           ],
         },
       ];

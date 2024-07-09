@@ -7,7 +7,7 @@
 %width {
   width: 100%;
   height: auto;
-  border: 1px solid var(--neutralDarkGrey8);
+  border: 1px solid var(--neutralLightGrey8);
   border-radius: 12px;
 }
 %animition {
@@ -22,6 +22,7 @@
 }
 
 .about-content__rotation-text {
+  padding: 10px;
   @extend %width;
   @include rotation-text;
   overflow: hidden;
