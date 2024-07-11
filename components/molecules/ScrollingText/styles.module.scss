@@ -5,7 +5,7 @@
   align-items: baseline;
 }
 %width {
-  width: 100%;
+  width: 1700px;
   height: auto;
   border: 1px solid var(--neutralLightGrey8);
   border-radius: 12px;
@@ -16,7 +16,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translateX(-120%);
     }
   }
 }
@@ -26,7 +26,6 @@
   @extend %width;
   @include rotation-text;
   overflow: hidden;
-  position: relative;
 
   .scrolling-text {
     display: flex;

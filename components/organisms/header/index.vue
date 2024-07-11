@@ -6,12 +6,12 @@ export default defineComponent({
     const items = computed(() => {
       return [
         {
-          url: "/",
-          text: "Home",
-        },
-        {
           url: "/About",
           text: "About me",
+        },
+        {
+          url: "/my-profile",
+          text: "Profile",
         },
       ];
     });
@@ -27,7 +27,9 @@ export default defineComponent({
     <nav class="header-nav__items">
       <div class="header-nav__items__route">
         <OrganismsModal />
-        <AtomsTag text="PedroHRFerreira" type="none" />
+        <a class="profile-href" href="/">
+          <AtomsTag text="PedroHRFerreira" type="none" />
+        </a>
       </div>
       <div class="header-nav__items__link">
         <AtomsInternalLink :items="items" color="aqua" class="link" />

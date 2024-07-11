@@ -1,56 +1,60 @@
 <script lang="ts">
-import { defineComponent, computed } from "vue";
-import { useRoute } from "vue-router";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "LayoutDefault",
-  setup() {
-    const route = useRoute();
-    const isMyProfileRoute = computed(() => route.path === "/my-profile");
-
-    const isNotMyProfileRoute = computed(() => route.path !== "/my-profile");
-
-    return {
-      isMyProfileRoute,
-      isNotMyProfileRoute,
-    };
-  },
 });
 </script>
 
 <template>
-  <header v-if="isMyProfileRoute">
-    <OrganismsHeader />
-  </header>
-  <main class="layout">
-    <aside class="aside">
-      <OrganismsNavBar v-if="isNotMyProfileRoute" />
-    </aside>
-    <section class="content">
-      <slot />
-    </section>
-  </main>
+  <div class="layout-container">
+    <header class="layout-header">
+      <OrganismsHeader />
+    </header>
+    <main class="layout-main">
+      <section class="layout-content">
+        <slot />
+      </section>
+    </main>
+  </div>
 </template>
 
 <style scoped lang="scss">
-.layout {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.layout-container {
   display: grid;
-  grid-template-areas: "aside content";
-  grid-template-columns: max-content 1fr;
+  grid-template-rows: auto 1fr;
   min-height: 100vh;
-  transition: 0.5s ease-in-out;
-  overflow: auto;
 }
-.aside {
-  grid-area: aside;
-  box-shadow: 2px 20px 20px red;
+
+.layout-header {
+  grid-row: 1;
+  width: 100%;
 }
-.content {
-  grid-area: content;
+
+.layout-main {
+  grid-row: 2;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  overflow: auto;
+}
+
+.layout-content {
+  display: flex;
+  flex-direction: column;
   padding: min(30px, 4vw);
-  position: relative;
+  flex-grow: 1;
 }
 </style>
