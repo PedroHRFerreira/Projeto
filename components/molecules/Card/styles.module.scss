@@ -1,0 +1,43 @@
+@mixin flex($flex-direction) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: center;
+  align-items: center;
+}
+.card-main {
+  padding: 10px;
+  @include flex(row);
+  gap: 48px;
+  flex-wrap: wrap;
+  cursor: pointer;
+
+  &__cards {
+    padding: 20px;
+    border-radius: 12px;
+    width: 250px;
+    height: 266px;
+    transition: background-color 0.3s ease;
+
+    &.hovered {
+      background-color: var(--neutralLightGrey4);
+    }
+
+    &__content {
+      @include flex(column);
+
+      .icon-animation {
+        background-color: var(--neutralLightGrey4);
+        padding: 20px;
+        border-radius: 6px;
+        transition:
+          background-color,
+          border-radius 1s ease;
+
+        &.icon {
+          background-color: var(--neutralDarkGrey1);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
