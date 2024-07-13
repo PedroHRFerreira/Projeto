@@ -16,8 +16,11 @@
     border-radius: 12px;
     width: 250px;
     height: 266px;
-    transition: background-color 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      transform 0.5s ease;
     border: 0.5px solid var(--neutralLightGrey4);
+    animation: cards-animation 1s forwards;
 
     &.hovered {
       background-color: var(--neutralLightGrey4);
@@ -25,6 +28,7 @@
 
     &__content {
       @include flex(column);
+      animation: cards-animation-content 3s forwards;
 
       .icon-animation {
         background-color: var(--neutralLightGrey4);
@@ -39,6 +43,28 @@
           border-radius: 50%;
         }
       }
+    }
+  }
+
+  @keyframes cards-animation {
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes cards-animation-content {
+    0% {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 }
