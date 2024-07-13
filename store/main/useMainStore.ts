@@ -1,6 +1,8 @@
 import { defineStore } from "pinia";
 import { Imain } from "~/types/main";
 
+const images = import.meta.glob("~/assets/icons/*.svg");
+
 export const useMainStore = defineStore("useMainStore", {
   state: () => ({
     mainProfile: {} as Imain,
@@ -23,44 +25,44 @@ export const useMainStore = defineStore("useMainStore", {
           profile: 1,
           personalInformation: [
             {
-              title: "Coragem, o Cão Covarde",
-              text: "Coragem, o Cão Covarde conta a história de Coragem.",
+              title: "Location",
+              text: "Governador Valadares, MG, Brazil.",
             },
             {
-              title: "Brian Griffin",
-              text: " é um personagem animado da americana Family Guy.",
+              title: "Hello",
+              text: "Olá, meu nome é Pedro Henrique.",
             },
             {
-              title: "George Jetson",
-              text: "George reside com sua família e seu cachorro Astro nos Skypad Apartments.",
+              title: "Work",
+              text: "Atualmente trabalho na empresa Braip.",
             },
             {
-              title: "Coragem, o Cão Covarde",
-              text: "Coragem, o Cão Covarde conta a história de Coragem.",
+              title: "Profile",
+              text: "Sou um Dev Front-End",
             },
             {
-              title: "Brian Griffin",
-              text: " é um personagem animado da americana Family Guy.",
+              title: "GitHub",
+              text: "https://github/PedroHRFerreira",
             },
             {
-              title: "George Jetson",
-              text: "George reside com sua família e seu cachorro Astro nos Skypad Apartments.",
+              title: "Instagram",
+              text: "pedrohr_dev",
             },
             {
-              title: "Coragem, o Cão Covarde",
-              text: "Coragem, o Cão Covarde conta a história de Coragem.",
+              title: "Discord",
+              text: "pedrorodrigues8128",
             },
             {
-              title: "Brian Griffin",
-              text: " é um personagem animado da americana Family Guy.",
+              title: "Game",
+              text: "Gosto muito de jogos, de vários genêros.",
             },
             {
-              title: "George Jetson",
-              text: "George reside com sua família e seu cachorro Astro nos Skypad Apartments.",
+              title: "programming",
+              text: "tenho conhecimento de lgumas lingugens de programção, como Js,Ts,PHP e Go.",
             },
             {
-              title: "George Jetson",
-              text: "George reside com sua família e seu cachorro Astro nos Skypad Apartments.",
+              title: "objectives",
+              text: "Virar um fullstack e me desenvolver mais na parte de back-end.",
             },
           ],
         } as Imain,

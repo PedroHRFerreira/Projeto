@@ -17,6 +17,7 @@
     width: 250px;
     height: 266px;
     transition: background-color 0.3s ease;
+    border: 0.5px solid var(--neutralLightGrey4);
 
     &.hovered {
       background-color: var(--neutralLightGrey4);

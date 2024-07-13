@@ -19,8 +19,24 @@ export default defineComponent({
       store.fetchMain();
     });
 
+    const icons = computed(() => {
+      return [
+        "world",
+        "smile",
+        "building",
+        "id-badge",
+        "github-fill-svgrepo-com",
+        "instagram",
+        "discord",
+        "gamepad",
+        "browser",
+        "rocket-lunch",
+      ];
+    });
+
     return {
       profileData,
+      icons,
     };
   },
 });
@@ -29,7 +45,7 @@ export default defineComponent({
 <template>
   <article v-if="!showEmptyState" class="main_all">
     <div class="main">
-      <MoleculesCard :items="profileData" />
+      <MoleculesCard :items="profileData" :icons="icons" />
     </div>
     <!-- <div class="time-line">
       <MoleculesTimeLine />
