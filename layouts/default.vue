@@ -37,6 +37,10 @@ body {
 }
 
 .layout-container {
+  background-image: url("/static/image/image-dk.png");
+
+  background-position: center;
+
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
@@ -55,18 +59,9 @@ body {
 }
 
 .layout-content {
-  background-image: url("/static/image/image-dk.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
   display: flex;
   flex-direction: column;
   padding: min(30px, 4vw);
   flex-grow: 1;
-}
-
-.footer {
-  background-color: black;
 }
 </style>
