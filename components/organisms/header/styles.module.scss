@@ -40,7 +40,12 @@
     .decoration {
       position: absolute;
       left: 90%;
-      width: 150px;
+      max-width: 150px;
+      width: 100%;
+
+      @media (max-width: 1800px) {
+        display: none;
+      }
 
       &__btn {
         width: 100%;

@@ -1,0 +1,63 @@
+.footer {
+  background: linear-gradient(
+      217deg,
+      rgba(75, 4, 4, 0.8),
+      rgba(100, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(3, 3, 58, 0.8), rgba(0, 0, 100, 0) 70.71%),
+    linear-gradient(336deg, rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 0) 70.71%);
+  background-size: 300% 300%;
+  width: 60%;
+  height: 66px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 4px;
+  animation: moveColors 9s linear infinite;
+
+  @keyframes moveColors {
+    0% {
+      background-position:
+        0% 50%,
+        0% 50%,
+        0% 50%;
+    }
+    50% {
+      background-position:
+        100% 50%,
+        50% 100%,
+        0% 100%;
+    }
+    100% {
+      background-position:
+        0% 50%,
+        0% 50%,
+        0% 50%;
+    }
+  }
+
+  &__content {
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .icon {
+      position: fixed;
+      left: 5%;
+      bottom: 7px;
+      animation: icon 8s linear infinite;
+
+      @keyframes icon {
+        0%,
+        100% {
+          transform: translateX(0) translateY(0);
+        }
+        25% {
+          transform: translateX(240px) translateY(0);
+        }
+        75% {
+          transform: translateX(-100px) translateY(0);
+        }
+      }
+    }
+  }
+}
