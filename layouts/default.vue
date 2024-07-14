@@ -1,43 +1,72 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+
 export default defineComponent({
   name: "LayoutDefault",
-  setup() {
-    return {};
-  },
 });
 </script>
 
 <template>
-  <main class="layout">
-    <aside class="aside">
-      <OrganismsNavBar />
-    </aside>
-    <section class="content">
-      <slot />
-    </section>
-  </main>
+  <div class="layout-container">
+    <header class="layout-header">
+      <OrganismsHeader />
+    </header>
+    <main class="layout-main">
+      <section class="layout-content">
+        <slot />
+      </section>
+    </main>
+    <footer class="footer">
+      <OrganismsFooter />
+    </footer>
+  </div>
 </template>
 
 <style scoped lang="scss">
-.layout {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.layout-container {
   display: grid;
-  grid-template-areas: "aside content";
-  grid-template-columns: max-content 1fr;
+  grid-template-rows: auto 1fr;
   min-height: 100vh;
-  transition: 0.5s ease-in-out;
-  overflow: auto;
 }
-.aside {
-  grid-area: aside;
-  box-shadow: 2px 20px 20px red;
+
+.layout-header {
+  grid-row: 1;
+  width: 100%;
 }
-.content {
-  grid-area: content;
+
+.layout-main {
+  grid-row: 2;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  overflow: auto;
+}
+
+.layout-content {
+  background-image: url("/static/image/image-dk.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
   padding: min(30px, 4vw);
-  position: relative;
+  flex-grow: 1;
+}
+
+.footer {
+  background-color: black;
 }
 </style>

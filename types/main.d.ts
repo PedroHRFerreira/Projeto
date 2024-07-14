@@ -1,7 +1,6 @@
 export interface IProfile {
-  information: string;
-  history: string;
-  url_image: string;
+  title: string;
+  text: string;
 }
 
 export interface Imain {

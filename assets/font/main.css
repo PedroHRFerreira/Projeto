@@ -52,38 +52,4 @@ body {
   width: auto;
   font-family: "Poppins", sans-serif;
   background-color: var(--neutralDarkGrey1);
-  /* box-shadow: 0px 4px 14px red; */
-}
-
-.loading .anim-loading {
-  position: relative;
-  pointer-events: none;
-  overflow: hidden;
-  border-color: transparent;
-}
-
-.loading .anim-loading::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    45deg,
-    var(--neutralDarkGrey) 25%,
-    var(--neutralDarkGrey8) 50%,
-    var(--neutralDarkGrey) 75%
-  );
-  background-size: 300%;
-  pointer-events: none;
-  border-radius: 5px;
-  z-index: 10;
-  animation: loadingEffect 3s infinite;
-}
-
-@keyframes loadingEffect {
-  from {
-    background-position: 300% 0;
-  }
-  to {
-    background-position: 0% 0;
-  }
 }

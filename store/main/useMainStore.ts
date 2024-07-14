@@ -1,6 +1,8 @@
 import { defineStore } from "pinia";
 import { Imain } from "~/types/main";
 
+const images = import.meta.glob("~/assets/icons/*.svg");
+
 export const useMainStore = defineStore("useMainStore", {
   state: () => ({
     mainProfile: {} as Imain,
@@ -23,25 +25,44 @@ export const useMainStore = defineStore("useMainStore", {
           profile: 1,
           personalInformation: [
             {
-              information: "Coragem, o Cão Covarde",
-              history:
-                "Coragem, o Cão Covarde conta a história de Coragem, um cachorro facilmente assustado que vive em uma fazenda com Muriel e Eustácio Bagge, na cidade de Lugar Nenhum, no Kansas. Abandonado quando filhote, Coragem foi encontrado em um beco por Muriel Bagge, uma mulher escocesa de natureza doce e seu marido Eustácio.",
-              url_image:
-                "https://segredosdomundo.r7.com/wp-content/uploads/2015/08/13-teorias-da-conspiracao-chocantes-sobre-desenhos-animados.png",
+              title: "Location",
+              text: "Governador Valadares, MG, Brazil.",
             },
             {
-              information: "Brian Griffin",
-              history:
-                " é um personagem fictício da sitcom animada americana Family Guy . Ele é um dos personagens principais da série e um membro da família Griffin . Criado, desenhado e dublado por Seth MacFarlane , ele é um labrador retriever branco antropomórfico que é o melhor amigo de Stewie Griffin e personagem cômico com a habilidade de falar, dirigir e ficar em pé sobre duas pernas.",
-              url_image:
-                "https://www.guiadasemana.com.br/contentFiles/system/pictures/2015/6/138077/original/o-brian-griffin-facebook.jpg",
+              title: "Hello",
+              text: "Olá, meu nome é Pedro Henrique.",
             },
             {
-              information: "George Jetson",
-              history:
-                "George reside com sua família e seu cachorro Astro nos Skypad Apartments [20] em Orbit City, em um futuro com as armadilhas das representações de fantasia científica da vida americana no futuro, como servos robôs , carros semelhantes a discos voadores e carros em movimento calçadas Todos os prédios de apartamentos estão montados em postes gigantes.",
-              url_image:
-                "https://arteref.com/wp-content/uploads/2019/04/george-jetson.jpg",
+              title: "Work",
+              text: "Atualmente trabalho na empresa Braip.",
+            },
+            {
+              title: "Profile",
+              text: "Sou um Dev Front-End",
+            },
+            {
+              title: "GitHub",
+              text: "https://github/PedroHRFerreira",
+            },
+            {
+              title: "Instagram",
+              text: "pedrohr_dev",
+            },
+            {
+              title: "Discord",
+              text: "pedrorodrigues8128",
+            },
+            {
+              title: "Game",
+              text: "Gosto muito de jogos, de vários genêros.",
+            },
+            {
+              title: "programming",
+              text: "tenho conhecimento de lgumas lingugens de programção, como Js,Ts,PHP e Go.",
+            },
+            {
+              title: "objectives",
+              text: "Virar um fullstack e me desenvolver mais na parte de back-end.",
             },
           ],
         } as Imain,

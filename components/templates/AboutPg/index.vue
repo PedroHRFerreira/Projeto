@@ -20,5 +20,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <OrganismsAbout :showEmptyState="showEmptyState" />
+  <main class="about">
+    <OrganismsAbout :showEmptyState="showEmptyState" />
+  </main>
 </template>
+<style scoped lang="scss">
+@import "styles.module.scss";
+</style>

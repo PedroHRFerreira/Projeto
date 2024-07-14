@@ -13,26 +13,30 @@ export default defineComponent({
   setup() {
     const store = useMainStore();
 
-    const profileData = computed(() => store.mainProfile);
+    const profileData = computed(() => store.mainProfile.personalInformation);
 
     onMounted(() => {
       store.fetchMain();
     });
 
-    const items = computed(() => {
-      if (!profileData.value.personalInformation) {
-        return [];
-      }
-      return profileData.value.personalInformation.map((item: any) => ({
-        title: item.information,
-        text: item.history,
-        img: item.url_image,
-      }));
+    const icons = computed(() => {
+      return [
+        "world",
+        "smile",
+        "building",
+        "id-badge",
+        "github-fill-svgrepo-com",
+        "instagram",
+        "discord",
+        "gamepad",
+        "browser",
+        "rocket-lunch",
+      ];
     });
 
     return {
       profileData,
-      items,
+      icons,
     };
   },
 });
@@ -41,17 +45,11 @@ export default defineComponent({
 <template>
   <article v-if="!showEmptyState" class="main_all">
     <div class="main">
-      <div class="main-section" v-for="(item, index) in items" :key="index">
-        <AtomsParagraphTitle :text="profileData.profile" size="extra-small" />
-        <AtomsParagraphTitle :text="item.title" size="extra-small" />
-        <AtomsParagraphTitle :text="item.text" size="extra-small" />
-
-        <img class="image-card" :src="item.img" alt="image" />
-      </div>
+      <MoleculesCard :items="profileData" :icons="icons" />
     </div>
-    <div class="time-line">
+    <!-- <div class="time-line">
       <MoleculesTimeLine />
-    </div>
+    </div> -->
   </article>
   <MoleculesEmpty v-else />
 </template>

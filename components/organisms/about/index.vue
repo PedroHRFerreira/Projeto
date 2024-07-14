@@ -34,14 +34,17 @@ export default defineComponent({
   <article v-if="!showEmptyState" class="about-content">
     <div v-if="aboutData.length > 0" class="about-content__layout">
       <div class="about-content__layout__text">
-        <AtomsParagraphTitle size="small" :text="aboutData[0].about_text" />
+        <div class="about-content__layout__text__item">
+          <AtomsParagraphTitle size="small" :text="aboutData[0].about_text" />
+        </div>
+        <div class="about-content__layout__text__item">
+          <MoleculesImageSwitch :src-image="aboutData[0].about_url" />
+        </div>
       </div>
-      <MoleculesImageSwitch
-        style="height: 700px"
-        :src-image="aboutData[0].about_url"
-      />
+      <div class="about-content__rotation">
+        <MoleculesScrollingText :items="values" />
+      </div>
     </div>
-    <MoleculesScrollingText :items="values" />
   </article>
   <MoleculesEmpty v-else />
 </template>

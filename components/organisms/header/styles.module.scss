@@ -1,0 +1,55 @@
+@mixin flex($justifyContent, $flexDirection, $gap: none) {
+  display: flex;
+  justify-content: $justifyContent;
+  flex-direction: $flexDirection;
+  align-items: center;
+  gap: $gap;
+}
+
+.header-nav {
+  position: relative;
+  background: var(--neutralDarkGrey2);
+  z-index: 20;
+  @include flex(flex-start, none);
+  border-radius: 6px;
+  margin-top: 5px;
+  transition: transform 0.6s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  &__items {
+    @include flex(space-between, row, 44px);
+    max-width: 580px;
+    width: 100%;
+    height: auto;
+
+    &__route {
+      @include flex(space-around, row);
+    }
+
+    &__link {
+      position: relative;
+
+      .link {
+        @include flex(space-between, row, 32px);
+      }
+    }
+
+    .decoration {
+      position: absolute;
+      left: 90%;
+      max-width: 150px;
+      width: 100%;
+
+      @media (max-width: 1800px) {
+        display: none;
+      }
+
+      &__btn {
+        width: 100%;
+      }
+    }
+  }
+}
