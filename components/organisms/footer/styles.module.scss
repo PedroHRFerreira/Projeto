@@ -8,10 +8,14 @@
     linear-gradient(336deg, rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 0) 70.71%);
   background-size: 300% 300%;
   width: 30%;
-  height: 66px;
+  height: auto;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 4px;
   animation: moveColors 9s linear infinite;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 
   @keyframes moveColors {
     0% {
