@@ -10,13 +10,11 @@ export default defineComponent({
 <template>
   <article class="animation-main">
     <AtomsParagraphTitle size="small" text="Aguarde a Página!!!" />
-    <div class="loading-screen">
-      <div class="animal animal1"></div>
-      <div class="animal animal2"></div>
-      <div class="animal animal3"></div>
-      <div class="animal animal4"></div>
-      <div class="animal animal5"></div>
-      <div class="animal animal6"></div>
+    <div class="loader">
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
     </div>
   </article>
 </template>

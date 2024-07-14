@@ -2,204 +2,48 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-.loading-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 15%;
+  margin-top: auto;
+  margin-bottom: 25%;
+  gap: 64px;
 
-  .animal {
-    background-color: var(--brandPrimary6);
-    border-radius: 50%;
-    animation: move 3.5s ease-in-out infinite;
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
 
-    &:nth-child(1) {
-      animation-name: move1;
+    .loader-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #06014e;
+      margin: 0 10px;
+      animation: loader-dot 1.5s infinite ease-in-out;
+      animation-delay: calc(0.5s);
     }
-    &:nth-child(2) {
-      animation-name: move2;
+
+    .loader-dot:nth-child(2) {
+      animation-delay: calc(0.5s + 0.25s);
     }
-    &:nth-child(3) {
-      animation-name: move3;
+
+    .loader-dot:nth-child(3) {
+      animation-delay: calc(0.5s + 0.5s);
     }
-    &:nth-child(4) {
-      animation-name: move4;
-    }
-    &:nth-child(5) {
-      animation-name: move5;
-    }
-    &:nth-child(6) {
-      animation-name: move6;
+
+    .loader-dot:nth-child(4) {
+      animation-delay: calc(0.5s + 0.75s);
     }
   }
 }
 
-@keyframes move1 {
+@keyframes loader-dot {
   0% {
-    width: 80px;
-    height: 80px;
-    transform: translate(0, 0);
-  }
-  25% {
-    width: 64px;
-    height: 64px;
-    transform: translate(-80px, -80px);
+    transform: scale(1);
   }
   50% {
-    width: 52px;
-    height: 52px;
-    transform: translate(-160px, 0);
-  }
-  75% {
-    width: 42px;
-    height: 42px;
-    transform: translate(-80px, 80px);
+    transform: scale(1.5);
   }
   100% {
-    width: 42px;
-    height: 42px;
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes move2 {
-  0% {
-    width: 80px;
-    height: 80px;
-    transform: translate(0, 0);
-  }
-  25% {
-    width: 64px;
-    height: 64px;
-    transform: translate(80px, -80px);
-  }
-  50% {
-    width: 52px;
-    height: 52px;
-    transform: translate(160px, 0);
-  }
-  75% {
-    width: 42px;
-    height: 42px;
-    transform: translate(80px, 80px);
-  }
-  100% {
-    width: 42px;
-    height: 42px;
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes move3 {
-  0% {
-    width: 80px;
-    height: 80px;
-    transform: translate(0, 0);
-  }
-  25% {
-    width: 64px;
-    height: 64px;
-    transform: translate(-80px, 80px);
-  }
-  50% {
-    width: 52px;
-    height: 52px;
-    transform: translate(-160px, 160px);
-  }
-  75% {
-    width: 42px;
-    height: 42px;
-    transform: translate(-80px, 80px);
-  }
-  100% {
-    width: 42px;
-    height: 42px;
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes move4 {
-  0% {
-    width: 80px;
-    height: 80px;
-    transform: translate(0, 0);
-  }
-  25% {
-    width: 64px;
-    height: 64px;
-    transform: translate(80px, 80px);
-  }
-  50% {
-    width: 52px;
-    height: 52px;
-    transform: translate(160px, 160px);
-  }
-  75% {
-    width: 42px;
-    height: 42px;
-    transform: translate(80px, 80px);
-  }
-  100% {
-    width: 42px;
-    height: 42px;
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes move5 {
-  0% {
-    width: 80px;
-    height: 80px;
-    transform: translate(0, 0);
-  }
-  25% {
-    width: 64px;
-    height: 64px;
-    transform: translate(-120px, -120px);
-  }
-  50% {
-    width: 52px;
-    height: 52px;
-    transform: translate(-240px, 0);
-  }
-  75% {
-    width: 42px;
-    height: 42px;
-    transform: translate(-120px, 120px);
-  }
-  100% {
-    width: 42px;
-    height: 42px;
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes move6 {
-  0% {
-    width: 80px;
-    height: 80px;
-    transform: translate(0, 0);
-  }
-  25% {
-    width: 64px;
-    height: 64px;
-    transform: translate(120px, -120px);
-  }
-  50% {
-    width: 52px;
-    height: 52px;
-    transform: translate(240px, 0);
-  }
-  75% {
-    width: 42px;
-    height: 42px;
-    transform: translate(120px, 120px);
-  }
-  100% {
-    width: 42px;
-    height: 42px;
-    transform: translate(0, 0);
+    transform: scale(1);
   }
 }
