@@ -47,9 +47,6 @@ export default defineComponent({
     <div class="main">
       <MoleculesCard :items="profileData" :icons="icons" />
     </div>
-    <!-- <div class="time-line">
-      <MoleculesTimeLine />
-    </div> -->
   </article>
   <MoleculesEmpty v-else />
 </template>
