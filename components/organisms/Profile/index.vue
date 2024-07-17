@@ -1,5 +1,6 @@
 <script lang="ts">
-import { defineComponent, computed, ref } from "vue";
+import { defineComponent, computed, ref, onMounted } from "vue";
+import { useProfileStore } from "~/store/profile/useProfileStore";
 export default defineComponent({
   name: "OrganismsProfile",
   props: {
@@ -31,6 +32,16 @@ export default defineComponent({
       ];
     });
 
+    const useProfile = useProfileStore();
+
+    const images = computed(() =>
+      useProfile.profile.map((profile) => profile.image),
+    );
+
+    onMounted(async () => {
+      await useProfile.fetchProfile();
+    });
+
     const showModal = ref(false);
 
     const copyInfo = () => {
@@ -47,6 +58,7 @@ export default defineComponent({
       items,
       showModal,
       copyInfo,
+      images,
     };
   },
 });
@@ -54,22 +66,12 @@ export default defineComponent({
 <template>
   <article v-if="!showEmptyState">
     <div class="main-profile">
+      <div>
+        <MoleculesVideosShorts :images="images" />
+      </div>
       <aside class="profile-content">
         <article class="profile-content__main">
           <div class="profile-content__main__section-title">
-            <div class="profile-content__main__section-title__cmicon">
-              <AtomsParagraphTitle
-                text="Modal Profile"
-                size="extra-small"
-                class="title"
-              />
-              <AtomsIconSVG
-                class="icon"
-                name="rocket-lunch"
-                width="14px"
-                heigth="14px"
-              />
-            </div>
             <section class="profile-content__main__section-title__section">
               <div
                 v-for="(item, index) in items"

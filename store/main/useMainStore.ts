@@ -1,8 +1,6 @@
 import { defineStore } from "pinia";
 import { Imain } from "~/types/main";
 
-const images = import.meta.glob("~/assets/icons/*.svg");
-
 export const useMainStore = defineStore("useMainStore", {
   state: () => ({
     mainProfile: {} as Imain,
