@@ -1,3 +1,9 @@
+@mixin font-size($size, $line-height, $weight) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+
 .type-text {
   width: auto;
   height: auto;
@@ -6,43 +12,30 @@
   padding: 5px;
 
   &.extra-large {
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 28.8px;
+    @include font-size(28px, 28.8px, 700);
   }
 
   &.large {
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 25.6px;
+    @include font-size(26px, 25.6px, 600);
   }
 
   &.medium {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 22.4px;
+    @include font-size(24px, 22.4px, 600);
   }
 
   &.small {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 19.2px;
-    min-width: auto;
+    @include font-size(22px, 19.2px, 600);
   }
 
   &.extra-small {
-    font-size: 16px;
-    line-height: 12.2px;
-    font-weight: 600;
-    min-width: auto;
+    @include font-size(16px, 12.2px, 600);
   }
 
+  // Type Colors
   &.default {
     color: #fff;
 
-    &:hover {
-      color: aqua;
-    }
+    &:hover,
     &:focus {
       color: aqua;
     }

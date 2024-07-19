@@ -1,28 +1,21 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+const SIZE_OPTIONS = ["extra-large", "large", "medium", "small", "extra-small"];
+const TYPE_OPTIONS = ["default", "primary", "dark"];
+
 export default defineComponent({
   name: "AtomsParagraphTitle",
   props: {
     size: {
       type: String,
       default: "large",
-      validator: (value: string) => {
-        return [
-          "extra-large",
-          "large",
-          "medium",
-          "small",
-          "extra-small",
-        ].includes(value);
-      },
+      validator: (value: string) => SIZE_OPTIONS.includes(value),
     },
     types: {
       type: String,
       default: "dark",
-      validator: (value: string) => {
-        return ["default", "primary", "dark"].includes(value);
-      },
+      validator: (value: string) => TYPE_OPTIONS.includes(value),
     },
     text: {
       type: String,

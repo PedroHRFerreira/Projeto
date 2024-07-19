@@ -14,7 +14,7 @@
   border-radius: 6px;
 }
 .main-profile {
-  @include flex-direction(row, space-evenly);
+  @include flex-direction(row, space-around);
 
   .profile-content {
     @keyframes animation {
@@ -27,8 +27,8 @@
     }
 
     &__main {
-      max-width: 500px;
-      @include width(auto);
+      max-width: 400px;
+      @include width(685px);
       box-shadow:
         0px 4px 14px var(--neutralDarkGrey3),
         0px 4px 14px var(--brandPrimary6);
@@ -36,20 +36,10 @@
       padding: 10px;
 
       &__section-title {
+        @include width(650px);
         @include flex-direction(column);
         gap: 32px;
-
-        &__cmicon {
-          @include flex-direction(row-reverse);
-          gap: 12px;
-
-          .title {
-            animation: animation 1s forwards;
-          }
-          .icon {
-            animation: animation 1s forwards;
-          }
-        }
+        overflow: auto;
 
         &__section {
           @include flex-direction(column);
