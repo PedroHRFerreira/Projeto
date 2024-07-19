@@ -22,10 +22,13 @@ export const useProfileStore = defineStore("useProfileStore", {
             image: "http://localhost:3000/images/pedro-img.png",
           },
           {
-            image: "http://localhost:3000/images/pedro-img.png",
+            image: "http://localhost:3000/images/img-cruz.jpg",
           },
           {
             image: "http://localhost:3000/images/img-cruz.jpg",
+          },
+          {
+            image: "http://localhost:3000/images/pedro-img.png",
           },
         ],
       };

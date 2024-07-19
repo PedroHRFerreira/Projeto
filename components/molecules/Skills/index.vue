@@ -56,7 +56,12 @@ export default defineComponent({
 });
 </script>
 <template>
-  <AtomsParagraphTitle text="Skills" size="small" @click="show" />
+  <AtomsParagraphTitle
+    style="cursor: pointer"
+    text="Skills"
+    size="small"
+    @click="show"
+  />
   <article v-if="visible" class="skills-content">
     <div
       v-for="(item, index) in items"
