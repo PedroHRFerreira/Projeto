@@ -38,7 +38,7 @@
     &__border-icon {
       @include flex();
 
-      background-color: var(--neutralLightGrey);
+      background-color: #05025b;
       border-radius: 50%;
       height: 90px;
       width: 90px;
@@ -50,13 +50,14 @@
       &:hover {
         transform: scale(1.05);
 
-        box-shadow: 0px 4px 50px aqua;
+        box-shadow: 0px 4px 50px #12098e;
       }
 
       .icon {
+        z-index: 50;
         @include flex();
 
-        background-color: var(--neutralLightGrey9);
+        background-color: #09056c;
         border-radius: 50%;
         height: 60px;
         width: 60px;

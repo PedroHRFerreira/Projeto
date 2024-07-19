@@ -38,7 +38,6 @@ body {
 
 .layout-container {
   background-image: url("/static/image/image-dk.png");
-
   background-position: center;
 
   display: grid;

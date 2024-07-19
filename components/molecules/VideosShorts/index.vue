@@ -47,7 +47,7 @@ export default defineComponent({
           width="42px"
           height="42px"
           filled
-          current-color="var(--neutralDarkGrey)"
+          current-color="var(--neutralLightGrey)"
           @click="nextImages"
         />
       </div>

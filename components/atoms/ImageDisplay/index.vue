@@ -17,7 +17,7 @@ export default defineComponent({
     },
     height: {
       type: String,
-      default: "auto",
+      default: "500px",
     },
     src: {
       type: String,

@@ -24,6 +24,7 @@
       &__item {
         flex: 1;
         @include justify-content(none);
+        height: auto;
       }
     }
   }
