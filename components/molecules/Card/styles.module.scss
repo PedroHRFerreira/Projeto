@@ -1,4 +1,4 @@
-@mixin flex($flex-direction) {
+@mixin flex($flex-direction: none) {
   display: flex;
   flex-direction: $flex-direction;
   justify-content: center;
@@ -32,12 +32,13 @@
       animation: cards-animation-content 3s forwards;
 
       .icon-animation {
+        @include flex();
         background-color: var(--neutralLightGrey4);
         padding: 20px;
         border-radius: 6px;
         transition:
           background-color,
-          border-radius 0.7s ease;
+          border-radius 0.9s ease;
 
         &.icon {
           background-color: var(--neutralDarkGrey1);

@@ -40,7 +40,7 @@ export default defineComponent({
       >
         <img :src="image" alt="Image carousel" width="100%" height="100%" />
       </div>
-      <div class="modal-short--videos__border-icon">
+      <div class="modal-short--videos__border-icon" style="cursor: pointer">
         <AtomsIconSVG
           class="icon"
           name="chevron-right"
