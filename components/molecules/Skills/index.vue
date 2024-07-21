@@ -13,36 +13,40 @@ export default defineComponent({
     const items = computed(() => {
       return [
         {
-          icon: "photo",
-          color: "#fff",
+          icon: "icons8-vue-js",
+          url: "https://vuejs.org/",
         },
         {
-          icon: "photo",
-          color: "#fff",
+          icon: "icons8-nuxt-js",
+          url: "https://nuxt.com/",
         },
         {
-          icon: "photo",
-          color: "#fff",
+          icon: "mysql",
+          url: "https://www.mysql.com/",
         },
         {
-          icon: "photo",
-          color: "#fff",
+          icon: "icons8-css",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
         },
         {
-          icon: "photo",
-          color: "#fff",
+          icon: "icons8-sass",
+          url: "https://sass-lang.com/",
         },
         {
-          icon: "photo",
-          color: "#fff",
+          icon: "icons8-html",
+          url: "https://www.w3schools.com/html/html_intro.asp",
         },
         {
-          icon: "photo",
-          color: "#fff",
+          icon: "icons8-js",
+          url: "https://devdocs.io/javascript/",
         },
         {
-          icon: "photo",
-          color: "#fff",
+          icon: "ts",
+          url: "https://www.typescriptlang.org/docs/",
+        },
+        {
+          icon: "php",
+          url: "https://www.php.net/manual/pt_BR/",
         },
       ];
     });
@@ -69,13 +73,9 @@ export default defineComponent({
       class="skills-content__main"
       @click="$emit('onClick')"
     >
-      <AtomsIconSVG
-        class="icon"
-        :name="item.icon"
-        :current-color="item.color"
-        width="32px"
-        filled
-      />
+      <NuxtLink :to="item.url">
+        <AtomsIconSVG :name="item.icon" width="32px" />
+      </NuxtLink>
     </div>
   </article>
 </template>

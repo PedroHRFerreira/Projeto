@@ -21,6 +21,7 @@
       transform 0.5s ease;
     border: 0.5px solid var(--neutralLightGrey4);
     animation: cards-animation 1s forwards;
+    transition: background-color 0.5s ease-in-out;
 
     &.hovered {
       background-color: var(--neutralLightGrey4);
@@ -36,7 +37,7 @@
         border-radius: 6px;
         transition:
           background-color,
-          border-radius 1s ease;
+          border-radius 0.7s ease;
 
         &.icon {
           background-color: var(--neutralDarkGrey1);
