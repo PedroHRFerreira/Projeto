@@ -8,10 +8,6 @@ export default defineComponent({
       type: Array,
       default: () => [],
     },
-    icons: {
-      type: Array,
-      default: () => [],
-    },
   },
   setup(props) {
     const hoveredStates = ref(props.items.map(() => false));
@@ -43,17 +39,19 @@ export default defineComponent({
       @mouseleave="handleMouseLeave(index)"
       :class="{ hovered: hoveredStates[index] }"
     >
-      <section class="card-main__cards__content">
-        <div class="icon-animation" :class="{ icon: hoveredStates[index] }">
-          <AtomsIconSVG :name="icons[index]" />
-        </div>
-        <AtomsParagraphTitle :text="item.title" size="small" class="title" />
-        <AtomsParagraphTitle
-          :text="item.text"
-          size="extra-small"
-          class="title"
-        />
-      </section>
+      <NuxtLink :to="item.url">
+        <section class="card-main__cards__content">
+          <div class="icon-animation" :class="{ icon: hoveredStates[index] }">
+            <AtomsIconSVG :name="item.icon" />
+          </div>
+          <AtomsParagraphTitle :text="item.title" size="small" class="title" />
+          <AtomsParagraphTitle
+            :text="item.text"
+            size="extra-small"
+            class="title"
+          />
+        </section>
+      </NuxtLink>
     </div>
   </article>
 </template>

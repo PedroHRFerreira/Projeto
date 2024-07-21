@@ -54,3 +54,7 @@ body {
   font-weight: 400;
   background-color: var(--neutralDarkGrey1);
 }
+
+a {
+  text-decoration: none;
+}
