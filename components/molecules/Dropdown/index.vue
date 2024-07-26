@@ -28,19 +28,22 @@ export default defineComponent({
 });
 </script>
 <template>
-  <aside class="dropdown-content" @mouseleave="hideDropdown">
+  <aside class="dropdown-content">
     <div class="dropdown-content__section">
-      <a class="profile-href" href="/">
-        <AtomsParagraphTitle
-          class="show-dropdown"
-          size="small"
-          text="Perfil"
-          @mouseenter="showDropdown"
-        />
-      </a>
+      <img
+        src="/assets/icons/menu-list.svg"
+        alt="tes"
+        width="100%"
+        height="60px"
+        @click="showDropdown"
+      />
       <transition v-if="isVisible">
         <div class="dropdown-content__show">
-          <AtomsInternalLink class="link" :items="profile" />
+          <AtomsInternalLink
+            class="link"
+            :items="profile"
+            @mouseleave="hideDropdown"
+          />
         </div>
       </transition>
     </div>

@@ -18,7 +18,8 @@
     position: relative;
 
     &__image {
-      width: 500px;
+      max-width: 500px;
+      width: 100%;
       height: 500px;
 
       border: 1px solid var(--neutralLightGrey3);
@@ -38,6 +39,9 @@
     &__border-icon {
       @include flex();
 
+      @media (max-width: 1220px) {
+        display: none;
+      }
       background-color: #05025b;
       border-radius: 50%;
       height: 90px;

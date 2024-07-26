@@ -22,8 +22,11 @@
   &__items {
     @include flex(space-between, row, 44px);
     max-width: 580px;
-    width: 100%;
     height: auto;
+
+    @media (max-width: 650px) {
+      @include flex(space-between, row, none);
+    }
 
     &__route {
       @include flex(space-around, row);
@@ -34,6 +37,17 @@
 
       .link {
         @include flex(space-between, row, 32px);
+
+        @media (max-width: 605px) {
+          display: none;
+        }
+      }
+
+      .modal-profile {
+        display: none;
+        @media (max-width: 605px) {
+          display: block;
+        }
       }
     }
 

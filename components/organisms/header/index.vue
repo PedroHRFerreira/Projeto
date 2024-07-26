@@ -33,6 +33,7 @@ export default defineComponent({
       </div>
       <div class="header-nav__items__link">
         <AtomsInternalLink :items="items" color="aqua" class="link" />
+        <MoleculesDropdown :profile="items" class="modal-profile" />
       </div>
       <div class="decoration">
         <MoleculesButton class="decoration__btn" size="primary" text="Olá👋" />

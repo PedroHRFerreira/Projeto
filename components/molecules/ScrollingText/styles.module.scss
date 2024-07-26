@@ -5,7 +5,8 @@
   align-items: baseline;
 }
 %width {
-  width: 1700px;
+  max-width: 1700px;
+  width: 100%;
   height: auto;
   border: 1px solid var(--neutralLightGrey8);
   border-radius: 12px;
@@ -34,7 +35,7 @@
 
     .text {
       white-space: nowrap;
-      margin-right: 60px;
+      margin-right: 10%;
     }
   }
 }
