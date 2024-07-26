@@ -16,6 +16,15 @@
 .main-profile {
   @include flex-direction(row, space-around);
 
+  @media (max-width: 1700px) {
+    @include flex-direction(column, space-around);
+  }
+
+  &__short {
+    // @include width(auto);
+    display: flex;
+  }
+
   .profile-content {
     @keyframes animation {
       from {

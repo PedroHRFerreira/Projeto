@@ -66,7 +66,7 @@ export default defineComponent({
 <template>
   <article v-if="!showEmptyState">
     <div class="main-profile">
-      <div>
+      <div class="main-profile__short">
         <MoleculesVideosShorts :images="images" />
       </div>
       <aside class="profile-content">

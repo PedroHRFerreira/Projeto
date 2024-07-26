@@ -1,5 +1,6 @@
 <script lang="ts">
-import { defineComponent, ref, computed } from "vue";
+import { defineComponent, ref, computed, onMounted, onUnmounted } from "vue";
+
 export default defineComponent({
   name: "MoleculesVideosShorts",
   props: {
@@ -10,29 +11,62 @@ export default defineComponent({
   },
   setup(props) {
     const currentStartIndex = ref(0);
+    const startX = ref(0);
+    const screenWidth = ref(window.innerWidth);
+
+    const updateScreenWidth = () => {
+      screenWidth.value = window.innerWidth;
+    };
 
     const imagesToShow = computed(() => {
+      const imagesPerView = screenWidth.value < 1099 ? 1 : 2;
       return props.images.slice(
         currentStartIndex.value,
-        currentStartIndex.value + 2,
+        currentStartIndex.value + imagesPerView,
       );
     });
 
     const nextImages = () => {
+      const imagesPerView = screenWidth.value < 1099 ? 1 : 2;
       currentStartIndex.value =
-        (currentStartIndex.value + 2) % props.images.length;
+        (currentStartIndex.value + imagesPerView) % props.images.length;
     };
+
+    const handleTouchStart = (event: TouchEvent) => {
+      startX.value = event.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (event: TouchEvent) => {
+      const endX = event.changedTouches[0].clientX;
+      if (startX.value - endX > 30) {
+        nextImages();
+      }
+    };
+
+    onMounted(() => {
+      window.addEventListener("resize", updateScreenWidth);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener("resize", updateScreenWidth);
+    });
 
     return {
       imagesToShow,
       nextImages,
+      handleTouchStart,
+      handleTouchEnd,
     };
   },
 });
 </script>
 <template>
   <article class="modal-short">
-    <section class="modal-short--videos">
+    <section
+      class="modal-short--videos"
+      @touchstart="handleTouchStart"
+      @touchend="handleTouchEnd"
+    >
       <div
         v-for="(image, index) in imagesToShow"
         :key="index"
@@ -54,6 +88,7 @@ export default defineComponent({
     </section>
   </article>
 </template>
+
 <style scoped lang="scss">
 @import "styles.module.scss";
 </style>

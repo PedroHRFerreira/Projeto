@@ -13,7 +13,11 @@
   border-bottom-right-radius: 4px;
   animation: moveColors 9s linear infinite;
 
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
+    width: 80%;
+  }
+
+  @media (max-width: 450px) {
     width: 100%;
   }
 
@@ -61,6 +65,10 @@
         75% {
           transform: translateX(-100px) translateY(0);
         }
+      }
+
+      @media (max-width: 1800px) {
+        display: none;
       }
     }
   }
