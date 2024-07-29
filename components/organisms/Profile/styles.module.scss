@@ -21,7 +21,8 @@
   }
 
   &__short {
-    // @include width(auto);
+    max-width: 1220px;
+    @include width(auto);
     display: flex;
   }
 
@@ -83,6 +84,13 @@
       border-radius: 8px;
       z-index: 1000;
       animation: animation 1s forwards;
+
+      @media (max-width: 950px) {
+        left: 80%;
+      }
+      @media (max-width: 425px) {
+        left: 60%;
+      }
     }
   }
 }

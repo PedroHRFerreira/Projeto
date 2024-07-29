@@ -16,8 +16,14 @@ export default defineComponent({
       ];
     });
 
+    const redirection = () => {
+      window.location.href =
+        "https://www.linkedin.com/in/pedro-henrique-2ab9b6302/";
+    };
+
     return {
       items,
+      redirection,
     };
   },
 });
@@ -36,7 +42,12 @@ export default defineComponent({
         <MoleculesDropdown :profile="items" class="modal-profile" />
       </div>
       <div class="decoration">
-        <MoleculesButton class="decoration__btn" size="primary" text="Olá👋" />
+        <MoleculesButton
+          class="decoration__btn"
+          size="primary"
+          text="Olá👋"
+          @click="redirection"
+        />
       </div>
     </nav>
   </header>

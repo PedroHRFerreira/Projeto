@@ -13,7 +13,7 @@
   @include width(100%, auto);
 
   &__layout {
-    @include width(100%, auto);
+    @include width(100%, 800px);
     @include justify-content(column);
 
     &__text {
@@ -39,5 +39,7 @@
   &__rotation {
     padding-top: 4rem;
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
