@@ -21,7 +21,7 @@
   }
 
   &__short {
-    // @include width(auto);
+    @include width(auto);
     display: flex;
   }
 
