@@ -37,6 +37,8 @@
   }
 
   &__rotation {
+    display: flex;
+    justify-content: center;
     padding-top: 4rem;
     width: 100%;
   }
