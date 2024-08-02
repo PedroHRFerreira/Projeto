@@ -37,8 +37,10 @@ body {
 }
 
 .layout-container {
-  background-image: url("/static/image/image-dk.png");
+  background-image: url("/public/images/ph.jpeg");
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   display: grid;
   grid-template-rows: auto 1fr;
