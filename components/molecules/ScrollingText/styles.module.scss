@@ -17,7 +17,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-120%);
+      transform: translateX(-300%);
     }
   }
 }
@@ -30,7 +30,7 @@
 
   .scrolling-text {
     display: flex;
-    animation: scroll 10s linear infinite;
+    animation: scroll 9s linear infinite;
     @extend %animition;
 
     .text {
