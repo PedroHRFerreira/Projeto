@@ -1,0 +1,69 @@
+.main-card {
+  max-width: 650px;
+  width: 100%;
+  height: 235px;
+  border: 1px solid var(--neutralLightGrey);
+
+  display: flex;
+  position: relative;
+
+  &__animation {
+    width: 325px;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+
+    background-image: url("images/atc.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+
+    &:hover {
+      transform: translateX(324px);
+    }
+  }
+
+  &__fixed {
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 4rem;
+
+    .text {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      overflow-wrap: break-word;
+    }
+  }
+
+  &__presentation {
+    max-width: 325px;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("/public/images/image-dk.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    top: 0;
+    left: 325px;
+    z-index: 10;
+  }
+}

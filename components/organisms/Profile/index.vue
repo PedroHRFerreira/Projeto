@@ -69,6 +69,7 @@ export default defineComponent({
       <div class="main-profile__short">
         <MoleculesVideosShorts :images="images" />
       </div>
+      <slot />
       <aside class="profile-content">
         <article class="profile-content__main">
           <div class="profile-content__main__section-title">
