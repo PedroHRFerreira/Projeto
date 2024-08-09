@@ -5,11 +5,6 @@
   ul {
     padding-inline-start: 0;
     list-style-type: none;
-    transition: transform 0.6s ease-in-out;
-
-    &:hover {
-      transform: translateY(5px);
-    }
   }
 
   &__style {
@@ -17,5 +12,9 @@
     color: var(--color);
     font-weight: var(--font-weight);
     font-size: var(--font-size);
+
+    &:hover {
+      color: var(--color-hover);
+    }
   }
 }

@@ -13,7 +13,11 @@ export default defineComponent({
     },
     color: {
       type: String,
-      default: "aqua",
+      default: "var(--brandPrimary4)",
+    },
+    colorHover: {
+      type: String,
+      default: "var(--brandPrimary6)",
     },
     fontWeight: {
       type: [String, Number],
@@ -30,6 +34,7 @@ export default defineComponent({
       return {
         "--text-decoration": props.textDecoration,
         "--color": props.color,
+        "--color-hover": props.colorHover,
         "--font-weight": props.fontWeight,
         "--font-size": props.fontSize,
       };
@@ -55,9 +60,7 @@ export default defineComponent({
         :href="item.url"
         @click="profileOnClick"
       >
-        <b>
-          <u>{{ item.text }}↗️</u>
-        </b>
+        <b> {{ item.text }}↗️ </b>
       </a>
     </ul>
   </div>
