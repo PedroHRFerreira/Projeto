@@ -1,18 +1,33 @@
-.main-card {
-  max-width: 650px;
-  width: 100%;
-  height: 235px;
-  border: 1px solid var(--neutralLightGrey);
-
+@mixin flex($flex-direction: row) {
   display: flex;
-  position: relative;
+  justify-content: center;
+  flex-direction: $flex-direction;
+  align-items: center;
+}
+
+.main-card {
+  width: 100%;
+
+  @include flex();
+  flex-wrap: wrap;
+  gap: 24px;
+
+  &__cards {
+    max-width: 700px;
+    width: 100%;
+    height: 235px;
+    border: 1px solid var(--neutralLightGrey);
+
+    @include flex();
+    position: relative;
+  }
 
   &__animation {
-    width: 325px;
+    width: 350px;
     height: 100%;
     transition: transform 1s ease-in-out;
 
-    background-image: url("images/atc.jpg");
+    // background-image: url("images/atc.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -23,47 +38,37 @@
     z-index: 5;
 
     &:hover {
-      transform: translateX(324px);
+      transform: translateX(349px);
     }
   }
 
   &__fixed {
     height: auto;
 
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    @include flex(column);
     flex-wrap: wrap;
     padding: 4rem;
 
     .text {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      flex-wrap: wrap;
-      overflow-wrap: break-word;
+      margin-right: 350px;
+      @include flex();
     }
   }
 
   &__presentation {
-    max-width: 325px;
+    max-width: 350px;
     width: 100%;
     height: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex();
 
-    background-image: url("/public/images/image-dk.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
     position: absolute;
     top: 0;
-    left: 325px;
+    left: 350px;
     z-index: 10;
   }
 }

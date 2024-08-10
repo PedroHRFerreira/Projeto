@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent, computed, ref, onMounted } from "vue";
 import { useProfileStore } from "~/store/profile/useProfileStore";
+import { useCardsStore } from "~/store/profile/useCardsStore";
 export default defineComponent({
   name: "OrganismsProfile",
   props: {
@@ -33,6 +34,9 @@ export default defineComponent({
     });
 
     const useProfile = useProfileStore();
+    const useCard = useCardsStore();
+
+    const cards = computed(() => useCard.cards);
 
     const images = computed(() =>
       useProfile.profile.map((profile) => profile.image),
@@ -40,6 +44,7 @@ export default defineComponent({
 
     onMounted(async () => {
       await useProfile.fetchProfile();
+      await useCard.fetchCards();
     });
 
     const showModal = ref(false);
@@ -56,9 +61,10 @@ export default defineComponent({
 
     return {
       items,
-      showModal,
-      copyInfo,
+      cards,
       images,
+      copyInfo,
+      showModal,
     };
   },
 });
@@ -69,7 +75,7 @@ export default defineComponent({
       <div class="main-profile__short">
         <MoleculesVideosShorts :images="images" />
       </div>
-      <slot />
+      <MoleculesCardInteractive :items="cards" />
       <aside class="profile-content">
         <article class="profile-content__main">
           <div class="profile-content__main__section-title">

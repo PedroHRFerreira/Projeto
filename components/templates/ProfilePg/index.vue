@@ -1,26 +1,9 @@
 <script lang="ts">
-import { defineComponent, ref, onMounted, computed } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 export default defineComponent({
   name: "TemplatesProfilePg",
   setup() {
     const showEmptyState = ref(true);
-
-    const cards = computed(() => {
-      return [
-        {
-          text: "test",
-        },
-        {
-          text: "test",
-        },
-        {
-          text: "test",
-        },
-        {
-          text: "test",
-        },
-      ];
-    });
 
     onMounted(() => {
       setTimeout(() => {
@@ -29,7 +12,6 @@ export default defineComponent({
     });
 
     return {
-      cards,
       showEmptyState,
     };
   },
@@ -37,9 +19,7 @@ export default defineComponent({
 </script>
 <template>
   <main class="main">
-    <OrganismsProfile :showEmptyState="showEmptyState">
-      <MoleculesCardInteractive :items="cards" />
-    </OrganismsProfile>
+    <OrganismsProfile :showEmptyState="showEmptyState" />
   </main>
 </template>
 <style scoped lang="scss">
