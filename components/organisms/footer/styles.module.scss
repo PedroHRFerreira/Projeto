@@ -47,29 +47,5 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
-    .icon {
-      position: fixed;
-      left: 5%;
-      bottom: 7px;
-      animation: icon 8s linear infinite;
-
-      @keyframes icon {
-        0%,
-        100% {
-          transform: translateX(0) translateY(0);
-        }
-        25% {
-          transform: translateX(240px) translateY(0);
-        }
-        75% {
-          transform: translateX(-100px) translateY(0);
-        }
-      }
-
-      @media (max-width: 1800px) {
-        display: none;
-      }
-    }
   }
 }

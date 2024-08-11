@@ -13,7 +13,6 @@ export default defineComponent({
         text="Feito por: Pedro H.Rodrigues"
       />
       <AtomsIconSVG name="rocket-lunch" width="32px" />
-      <AtomsIconSVG class="icon" name="tinta-spray" width="32px" />
     </div>
   </article>
 </template>

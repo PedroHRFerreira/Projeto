@@ -27,8 +27,8 @@ export default defineComponent({
     <nav class="header-nav__items">
       <div class="header-nav__items__route">
         <OrganismsModal />
-        <a class="profile-href" href="/">
-          <AtomsTag text="PedroHRFerreira" type="none" />
+        <a href="/">
+          <AtomsTag text="PedroHRFerreira" type="none" class="tag" />
         </a>
       </div>
       <div class="header-nav__items__link">
