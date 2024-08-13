@@ -58,19 +58,22 @@ watchEffect(getIcon);
 watchSyncEffect(() => {
   if (props.filled) {
     icon.value = icon.value.replace(
-      /fill=".*?"/g,
-      `fill="${props.currentColor}"`,
+      / fill=".*?"/g,
+      ` fill="${props.currentColor}"`,
     );
   }
 
   if (props.width) {
-    icon.value = icon.value.replace(/width=".*?"/g, `width="${props.width}"`);
+    icon.value = icon.value.replace(
+      / width=".*?"/g,
+      ` width="${props.width}"`
+    );
   }
 
   if (props.height) {
     icon.value = icon.value.replace(
-      /height=".*?"/g,
-      `height="${props.height}"`,
+      / height=".*?"/g,
+      ` height="${props.height}"`,
     );
   }
 });
