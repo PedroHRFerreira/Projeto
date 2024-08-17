@@ -19,7 +19,7 @@ export default defineComponent({
     };
 
     const imagesToShow = computed(() => {
-      const imagesPerView = screenWidth.value < 1099 ? 1 : 2;
+      const imagesPerView = screenWidth.value < 1810 ? 1 : 2;
       return props.images.slice(
         currentStartIndex.value,
         currentStartIndex.value + imagesPerView,
@@ -27,7 +27,7 @@ export default defineComponent({
     });
 
     const nextImages = () => {
-      const imagesPerView = screenWidth.value < 1099 ? 1 : 2;
+      const imagesPerView = screenWidth.value < 1810 ? 1 : 2;
       currentStartIndex.value =
         (currentStartIndex.value + imagesPerView) % props.images.length;
     };

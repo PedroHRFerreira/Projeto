@@ -8,7 +8,7 @@
   padding: 5px 12px;
   border: solid;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 14.4px;
 
@@ -54,7 +54,6 @@
     }
   }
   &.none {
-    color: var(--brandPrimary6);
     border-color: transparent;
     border: none;
     padding: 6px;
@@ -62,14 +61,14 @@
 
     @keyframes animation {
       from {
-        font-size: 14px;
+        color: var(--brandPrimary6);
       }
       to {
-        font-size: 20px;
+        color: var(--auxiliary-blue-600);
       }
     }
 
-    animation: animation 3s forwards;
+    animation: animation 6s forwards;
   }
 
   .icon {

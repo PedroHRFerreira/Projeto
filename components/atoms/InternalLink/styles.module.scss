@@ -9,12 +9,22 @@
 
   &__style {
     text-decoration: var(--text-decoration);
-    color: var(--color);
     font-weight: var(--font-weight);
     font-size: var(--font-size);
 
+    @keyframes animation {
+      from {
+        color: var(--brandPrimary6);
+      }
+      to {
+        color: var(--auxiliary-blue-600);
+      }
+    }
+
+    animation: animation 6s forwards;
+
     &:hover {
-      color: var(--color-hover);
+      border-bottom: 1px solid aqua;
     }
   }
 }

@@ -1,0 +1,78 @@
+@mixin flex($flex-direction: row) {
+  display: flex;
+  justify-content: center;
+  flex-direction: $flex-direction;
+  align-items: center;
+}
+
+.main-card {
+  width: 100%;
+
+  @include flex();
+  flex-wrap: wrap;
+  gap: 24px;
+
+  &__cards {
+    max-width: 700px;
+    width: 100%;
+    height: 235px;
+    border: 1px solid var(--neutralLightGrey);
+
+    @include flex();
+    position: relative;
+  }
+
+  &__animation {
+    max-width: 350px;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.5s ease-in-out;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 5;
+
+    &:hover {
+      transform: translateX(100%);
+    }
+  }
+
+  &__fixed {
+    position: absolute;
+    height: auto;
+    width: 350px;
+    left: 0;
+
+    @include flex(column);
+    flex-wrap: wrap;
+
+    @media (max-width: 610px) {
+      left: -70px;
+    }
+
+    .text {
+      @include flex();
+    }
+  }
+
+  &__presentation {
+    max-width: 350px;
+    width: 100%;
+    height: 100%;
+
+    @include flex();
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: relative;
+    top: 0;
+    z-index: 10;
+  }
+}
