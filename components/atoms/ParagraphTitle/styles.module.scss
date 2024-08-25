@@ -50,10 +50,10 @@
   }
 
   &.dark {
-    color: #787a80;
+    color: var(--backgroundModal);
 
     &:hover {
-      color: aqua;
+      color: var(--neutralDarkGrey2);
     }
   }
 }

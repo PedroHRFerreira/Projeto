@@ -19,6 +19,7 @@ export default defineComponent({
 </script>
 <template>
   <main class="main">
+    <MoleculesSummary />
     <OrganismsProfile :showEmptyState="showEmptyState" />
   </main>
 </template>

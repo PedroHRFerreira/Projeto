@@ -1,0 +1,29 @@
+.summary {
+  background: #fff;
+  max-width: 350px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+
+  &__doubt {
+    list-style-type: none !important;
+
+    &:after {
+      content: "+";
+      color: var(--brandPrimaryLightest);
+      background: var(--backgroundModal);
+      float: left;
+      font-weight: bold;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+  }
+
+  &[open] .summary__doubt:after {
+    content: "-";
+  }
+}
