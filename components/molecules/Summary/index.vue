@@ -6,8 +6,13 @@ export default defineComponent({
 </script>
 <template>
   <details class="summary">
-    <summary class="summary__doubt">Details</summary>
-    <AtomsParagraphTitle class="text" size="extra-small" text="item.text" />
+    <summary class="summary__doubt" style="color: aqua">Details</summary>
+    <AtomsParagraphTitle
+      class="text"
+      size="extra-small"
+      types="primary"
+      text="item.text"
+    />
   </details>
 </template>
 <style scoped lang="scss">
