@@ -20,6 +20,7 @@ export default defineComponent({
 <template>
   <main class="main">
     <OrganismsProfile :showEmptyState="showEmptyState" />
+    <MoleculesSummary />
   </main>
 </template>
 <style scoped lang="scss">
